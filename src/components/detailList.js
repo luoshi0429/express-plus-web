@@ -5,7 +5,7 @@ class DetailList extends Component {
   render () {
     var isEmpty = false
     if (isEmpty) {
-      return <div className='detaillist-empty'>还没有订阅任何快递...</div>
+      return <div className='loadView'>还没有订阅任何快递...</div>
     } else {
       return (
         <div className='detailList'>

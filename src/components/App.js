@@ -1,43 +1,71 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router'
+import React, { Component} from 'react'
+import {Link, browserHistory} from 'react-router'
 import 'whatwg-fetch'
+import TipView from './tips'
 // import './App.css'
 
 class App extends Component {
 
-  _parseJSON (response) {
-    return response.text().then(function (text) {
-      return text ? JSON.parse(text) : {}
-    })
+  constructor () {
+    super()
+    this.state = {
+      tips: [],
+      isDisabled: true
+    }
   }
 
   onChange () {
-    console.log(this.refs.searchInput.value)
-    // if (fetch in window) {
-      var url = 'https://www.kuaidi100.com/autonumber/autoComNum?text=972200388913'
-      // var url = 'http://www.kuaidi100.com/autonumber/auto?num=' + this.refs.searchInput.value
-      var myInit = {
-        method: 'GET',
-        mode: 'no-cors',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Referer': 'http://www.kuaidi100.com/'
-        }
+    var inputValue = this.refs.searchInput.value
+    if (inputValue.length < 6) {
+      if (this.state.isDisabled) {
+        this.setState({
+          isDisabled: true,
+          tips: []
+        })
       }
-      // http://www.runoob.com/try/ajax/jsonp.php
-      var req = new Request('http://www.guokr.com/apis/handpick/v2/article.json?limit=20&retrieve_type=by_offset&ad=1&offset=0', {method: 'GET', mode: 'no-cors'})
-      fetch(req)
-        .then(r => { console.log(r) ; return r.json()})
-        .then(r => console.log('res: ' + r))
-        .catch(err => console.log('error: ' + err))
+      return
+    }
 
-      // fetch (url, myInit)
-      //   .then(r => this._parseJSON(r))
-      //   .then(r => console.log(r))
-      //   .catch(err => console.error(err))
+    var url = 'http://express-plus.leanapp.cn/api/auto?nu=' + inputValue
+    // var myInit = {
+    //   method: 'GET',
+    //   mode: 'no-cors',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //     'Referer': 'http://www.kuaidi100.com/'
+    //   }
     // }
-    
+    window.fetch(url)
+      .then(r => r.json())
+      .then(r => {
+        console.log(r)
+        if (r.length > 0) {
+          this.setState({
+            isDisabled: false
+          })
+        } else {
+          this.setState({
+            isDisabled: true
+          })
+        }
+        this.setState({
+          tips: r
+        })
+      })
+      .catch(err => console.error(err))
+  }
+
+  onSearchBtnClick () {
+    console.log('to....')
+    browserHistory.push({
+      pathname: '/info',
+      query: {
+        num: this.refs.searchInput.value,
+        com: this.state.tips[0].comCode
+      }
+    })
+    // this.context.router.push('/info/' + this.state.tips[0].comCode)
   }
 
   render () {
@@ -50,9 +78,11 @@ class App extends Component {
           </div>
           <div className='input-container'>
             <input ref='searchInput' type='text' placeholder='输入你的快递单号...' onChange={this.onChange.bind(this)} />
-            <div className='tips hidden'>圆通</div>
           </div>
-          <Link to='/info' className='btn search-btn'>搜索</Link>
+          <button ref='searchBtn' className='search-btn' disabled={this.state.isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
+            <i className='fa fa-search' />
+          </button>
+          <TipView tips={this.state.tips} />
         </div>
         {this.props.children}
       </div>
@@ -62,5 +92,4 @@ class App extends Component {
 
 export default App
 
-// <button className='search-btn'>搜索</button>
 
