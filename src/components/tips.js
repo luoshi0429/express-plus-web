@@ -35,7 +35,7 @@ var colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
 
 class TipView extends Component {
   searchTip (tip) {
-    console.log(tip)
+    this.props.tipClicked(tip.comCode)
   }
 
   render () {

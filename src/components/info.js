@@ -3,45 +3,12 @@ import React, {Component} from 'react'
 import InfoHeader from './infoHeader'
 import InfoList from './infoList'
 import LoadView from './loadView'
-
-var coms = {
-  'shunfeng': '顺丰',
-  'zhaijisong': '宅急送',
-  'zhongtong': '中通',
-  'yuantong': '圆通',
-  'yunda': '韵达',
-  'shentong': '申通',
-  'tiantian': '天天',
-  'quanfengkuaidi': '全峰',
-  'youshuwuliu': '优速',
-  'jd': '京东',
-  'neweggozzo': '新蛋',
-  'xinbangwuliu': '新邦物流',
-  'debangwuliu': '德邦物流',
-  'huitongkuaidi': '百世汇通',
-  'youzhengguonei': '国内邮政',
-  'youzhengguoji': '邮政国际',
-  'dhl': 'DHL(中国)',
-  'dhlen': 'DHL(国际)',
-  'dhlde': 'DHL(德国)',
-  'ems': 'EMS',
-  'emsguoji': 'EMS(国际)',
-  'japanposten': 'EMS(日本)',
-  'ecmsglobal': 'ECMS',
-  'ecmscn': '易客满',
-  'ups': 'UPS',
-  'usps': 'USPS',
-  'shunjiefengda': '顺捷丰达'
-}
+import InfoFooter from './infoFooter'
 
 function computeTime (endStr, startStr) {
   var endDate = new Date(endStr)
   var startDate = new Date(startStr)
-  console.log(endDate.getTime())
-  console.log(startDate.getTime())
-  console.log(endDate.getTime() - startDate.getTime())
   var deltaTime = endDate.getTime() - startDate.getTime()
-  console.log(new Date(deltaTime))
   var deltaData = new Date(deltaTime)
   var year = deltaData.getYear() - 1970
   var month = deltaData.getMonth()
@@ -62,31 +29,38 @@ class Info extends Component {
   }
 
   render () {
-    console.log('info: ' + this.props.location.query.num + '  ' + this.props.location.query.com)
     if (!this.state.fetchedData) {
-      return <LoadView />
+      return (
+        <div>
+          <LoadView />
+          <InfoFooter com={this.state.headerInfo.num} />
+        </div>
+      )
     }
     return (
       <div>
-        <InfoHeader info={this.state.headerInfo} refreshData={this.fetchData.bind(this)} />
+        <InfoHeader headerInfo={this.state.headerInfo} epInfo={this.state.epInfo} refreshData={this.fetchData.bind(this)} />
         <InfoList info={this.state.epInfo} />
+        <InfoFooter com={this.state.headerInfo.num} />
       </div>
     )
   }
 
   componentDidMount () {
-    this.fetchData()
+    const {num, com} = this.props.location.query
+    this.fetchData(num, com)
   }
 
-  componentWillReceiveProps () {
-    this.fetchData()
+  componentWillReceiveProps (nextprops) {
+    const {num, com} = nextprops.location.query
+    this.fetchData(num, com)
   }
 
-  fetchData () {
+  fetchData (num, com) {
     this.setState({
       fetchedData: false
     })
-    var url = `http://192.168.1.69:3000/api/search?nu=${this.props.location.query.num}&com=${this.props.location.query.com}`
+    var url = `http://192.168.1.69:3000/api/search?nu=${num}&com=${com}`
     console.log(url)
     window.fetch(url)
       .then(r => r.json())
@@ -99,9 +73,10 @@ class Info extends Component {
           time = computeTime(r.data[0].time, r.data[r.data.length - 1].time)
         }
         var headerInfo = {
-          num: r.nu ? r.nu : this.props.location.query.num,
-          com: coms[r.com] ? coms[r.com] : r.com,
-          time: time
+          num: r.nu || num,
+          com: r.com,
+          time: time,
+          cncom: r.cncom
         }
         if (r.status === '200') {
           this.setState({
@@ -115,7 +90,7 @@ class Info extends Component {
             fetchedData: true,
             epInfo: [{
               context: r.message,
-              time: now.toISOString().substring(0, 10) + '  ' + now.toISOString().substring(11, 19)
+              time: now.toISOString().substring(0, 10) + ' ' + now.toISOString().substring(11, 19)
             }],
             headerInfo: headerInfo
           })

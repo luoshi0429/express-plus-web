@@ -3,9 +3,14 @@ body {
   margin: 0 auto;
 }
 
-h1,h2,h3,h4,h5,h6,p {
+h1,h2,h3,h4,h5,h6,p,ul {
 	margin: 0 ;
 	padding: 0
+}
+
+input {
+	border: 1px solid #c0c0c0 ;
+	outline: none ;
 }
 
 input:focus {
@@ -148,7 +153,9 @@ input:focus {
 }
 
 .detailList {
-	height: 550px ;
+	max-height: 460px ;
+	min-height: 460px ;
+	overflow-y: auto ;
 }
 
 .detaillist-empty {
@@ -190,15 +197,39 @@ input:focus {
 }
 
 .detailItem-footer {
-	height: 20px ;
+	/*height: 20px ;
 	line-height: 20px ;
 	padding-left: 15px ;
 	padding-right: 5px ;
 	background: url('../imgs/tag.png') no-repeat left;
 	background-color: rgb(179,179,179);
-	display: inline-block;
+	display: inline-block; */
 	color: #fff ;
 	font-size: 12px ;
+	list-style: none ;
+
+}
+
+.detailItem-footer .epCom {
+	background-color: rgb(179,179,179);
+}
+
+.detailItem-footer li {
+	display: inline-block ;
+	margin-right: 8px ;
+	padding: 3px ;
+}
+
+.detailItem-footer .fa {
+	margin: 0 ;
+	margin-right: 3px ;
+}
+
+.detailItem-footer span {
+	cursor: pointer ;
+	line-height: 18px ;
+	padding: 3px 0;
+
 }
 
 .info-header {
@@ -237,6 +268,11 @@ input:focus {
 	width: 200px ;
 }
 
+.info-table {
+	max-height: 300px ;
+	overflow-y: auto ;
+}
+
 .info-table table {
 	font-size: 14px ;
 	border-collapse: collapse ;
@@ -259,8 +295,8 @@ input:focus {
 
 .tipView {
 	list-style: none;
-	padding: 0 0 0 90px ;
-	margin: 0 0 5px 0 ;
+	padding-left: 90px ;
+	margin-bottom: 5px ;
 }
 
 .tipView li {
@@ -285,5 +321,42 @@ input:focus {
 	justify-content: center;
 }
 
+.info-footer {
+	padding: 8px ;
+	background-color: #f0f0f0 ;
+	border-top: 1px solid #c0c0c0 ;
+}
+
+.info-footer input {
+	width: 300px ;
+	height: 20px ;
+	font-size: 12px ;
+	margin-right: 5px ;
+}
+
+.info-footer button {
+	line-height: 24px ;
+	padding: 0 8px ;
+	outline: none ;
+	border: none ;
+	background-color: #337ab7 ; 
+	cursor: pointer;
+	text-align: center ;
+	color: #fff ;
+}
+
+.info-taglist {
+	list-style: none;
+	margin-top: 6px;
+}
+
+.info-tag {
+	display: inline-block;
+	margin-right: 8px ;
+	color: #fff ;
+	font-size: 14px ;
+	background-color: #5bc0de ;
+	padding: 6px 4px 4px 1px ;
+}
 
 

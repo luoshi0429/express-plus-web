@@ -17,7 +17,7 @@ class App extends Component {
   onChange () {
     var inputValue = this.refs.searchInput.value
     if (inputValue.length < 6) {
-      if (this.state.isDisabled) {
+      if (!this.state.isDisabled) {
         this.setState({
           isDisabled: true,
           tips: []
@@ -39,8 +39,7 @@ class App extends Component {
     window.fetch(url)
       .then(r => r.json())
       .then(r => {
-        console.log(r)
-        if (r.length > 0) {
+        if (r.auto.length > 0) {
           this.setState({
             isDisabled: false
           })
@@ -50,19 +49,21 @@ class App extends Component {
           })
         }
         this.setState({
-          tips: r
+          tips: r.auto
         })
       })
       .catch(err => console.error(err))
   }
 
-  onSearchBtnClick () {
-    console.log('to....')
+  onSearchBtnClick (com) {
+    if (typeof com === 'object') {
+      com = this.state.tips[0].comCode
+    }
     browserHistory.push({
       pathname: '/info',
       query: {
         num: this.refs.searchInput.value,
-        com: this.state.tips[0].comCode
+        com: com
       }
     })
     // this.context.router.push('/info/' + this.state.tips[0].comCode)
@@ -82,7 +83,7 @@ class App extends Component {
           <button ref='searchBtn' className='search-btn' disabled={this.state.isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
             <i className='fa fa-search' />
           </button>
-          <TipView tips={this.state.tips} />
+          <TipView tips={this.state.tips} tipClicked={this.onSearchBtnClick.bind(this)} />
         </div>
         {this.props.children}
       </div>
@@ -91,5 +92,4 @@ class App extends Component {
 }
 
 export default App
-
 
