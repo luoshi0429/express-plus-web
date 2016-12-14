@@ -1,10 +1,6 @@
 /*通用*/
-html {
-	height: 100% ;
-}
-
 body {
-  width: 420px ;
+  /*width: 420px ;*/
   margin: 0 auto;
   height: 100% ;
 }
@@ -82,25 +78,19 @@ input:focus {
 .info-bg {
 	background-color: rgb(75,180,216) ;
 }
+
 /*---头部----start*/
 .header {
-	/*padding-top: 10px ;
-	padding-left: 10px ;
-	padding-bottom: 5px ;*/
-	padding: 0.8rem 0 0.8rem 0.8rem ;
+	padding: 1rem 0 1rem 1rem ;
 	border-bottom: 1px solid #ddd ;
 	width: 100% ;
 	z-index: 9 ;
-	/*position: relative;*/
+	position: relative;
 }
 
 .btn ,
 .btn:visited {
-	margin-right: 5px ;
-	/*width: 30px ;
-	height: 30px ;
-	line-height: 30px ;
-	font-size: 12px ;*/
+	margin-right: 0.5rem ;
 	font-size: 1rem ;
 	width: 2.5rem;
 	height: 2.5rem ;
@@ -114,21 +104,20 @@ input:focus {
 .header .input-container,
 .header .button-container {
 	display: inline-block;
-	width: 25% ;
 }
 
 .header .input-container {
-	/*margin-left: 15px;*/
-	width: 70% ;
+	position: absolute;
+	top: 1rem ;
+	left: 7rem ;
+	right: 5rem ;
+	bottom: 0 ;
 	padding: 0;
 }
 
 .header .input-container input {
-	/*width: 270px ;*/
-	/*height: 30px ;*/
-	/*width: 14rem ;*/
 	height: 2.5rem;
-	width: 82% ;
+	width: 100% ;
 }
 
 .header .input-container .tips {
@@ -139,12 +128,8 @@ input:focus {
 }
 
 .search-btn {
-	margin-left: 5px ;	
+	margin-left: 0.5rem ;	
 	border: none ;
-	/*width: 30px ;
-	height: 30px ;*/
-	/*position: relative;
-	top: 1px ;*/
 	font-size: 1rem ;
 	width: 2.5rem;
 	height: 2.5rem ;
@@ -152,6 +137,8 @@ input:focus {
 	background-color: #5bc0de ;
 	color: #fff ;
 	cursor: pointer;
+	position: absolute;
+	right: 2rem ;
 }
 
 .search-btn:disabled {
@@ -181,7 +168,8 @@ input:focus {
 
 /*----设置-----start*/
 .setting {
-	margin: 1.5rem ;
+	margin: 1.5rem 0;
+	text-align: center;
 }
 
 .setting h1 {
@@ -219,9 +207,6 @@ input:focus {
 }
 
 .detailList {
-	/*max-height: 460px ;
-	min-height: 460px ;*/
-	/*max-height: */
 	position: absolute ;
 	top: 5rem;
 	bottom: 3em ;
@@ -234,7 +219,6 @@ input:focus {
 	width: 100% ;
 	height: 160px ;
 	color: #999 ;
-	/*font-size: 16px ;*/
 	font-size: 1rem ;
 	display: flex;
 	align-items: center;
@@ -242,29 +226,24 @@ input:focus {
 }
 
 .detail-footer {
-	width: 100% ;
-	/*height: 39px ;
-	line-height: 39px ;*/
 	height: 3rem ;
-	/*line-height: 3rem ;*/
 	border-top: 1px solid #ccc ;
 	background-color: #ddd ;
 	position: absolute ;
 	bottom: 0;
+	left: 0;
+	right: 0;
 	z-index: 9 ;
 }
 
 .detail-footer input {
-	/*width: 300px ;*/
 	width: 85% ;
-	/*height: 20px ;*/
 	height: 2rem ;
 	border: 1px solid #ccc;
 	margin-top: 0.5rem; 
 }
 
 .detailItem {
-	/*padding: 10px ;*/
 	padding: 0.8rem ;
 	border-bottom: 1px solid #ddd ;
 }
@@ -311,13 +290,11 @@ input:focus {
 }
 
 .info-header {
-	/*padding: 10px 5px 3px 5px ;*/
 	font-size: 1rem ;
 	padding: 1rem ;
 }
 
 .info-header p{
-	/*font-size: 12px ;*/
 	margin-top: 3px ;
 	z-index: 9;
 }
@@ -334,7 +311,6 @@ input:focus {
 .infoList-header {
 	background-color: #000 ;
 	color: #fff ;
-	/*font-size: 14px ;*/
 	font-size: 1rem ;
 	z-index: 9;
 }	
@@ -353,27 +329,26 @@ input:focus {
 
 .info-content {
 	display: inline-block;
-	/*width: 200px ;*/
+	padding-left: 4rem ;
 }
 
 .info-table {
-	/*max-height: 300px ;
-	overflow-y: auto ;*/
 	font-size: 1rem ;
 	overflow-y: auto ;
 	position: absolute;
 	top: 13.5rem ;
-	width: 100% ;
+	left: 0 ;
+	right: 0 ;
 	bottom: 3rem ;
 }
 
 .info-table table {
-	/*font-size: 14px ;*/
 	border-collapse: collapse ;
+	width: 100% ;
 }
 
 .info-table td {
-	padding: 0.5rem 0 ;
+	padding: 0.5rem 1rem ;
 }
 
 .tr-even {
@@ -398,26 +373,23 @@ input:focus {
 }
 
 .info-footer {
-	width: 100% ;
 	padding: 0.5rem ;
 	background-color: #f0f0f0 ;
 	border-top: 1px solid #c0c0c0 ;
 	position: absolute;
 	bottom: 0 ;
+	left: 0 ;
+	right:  0;
 	z-index: 9 ;
 }
 
 .info-footer input {
-	/*width: 300px ;*/
-	/*height: 20px ;*/
-	/*width: */
 	height: 2rem ;
 	margin-right: 5px ;
-	width: 66% ;
+	width: 70% ;
 }
 
 .info-footer button {
-	/*line-height: 24px ;*/
 	position: relative ;
 	top: -2px;
 	line-height: 2rem ;
@@ -451,6 +423,8 @@ input:focus {
 
 	html {
 		overflow-x: hidden;	
+		height: 100% ;
+
 	}
 }
 
@@ -460,9 +434,6 @@ input:focus {
 		-webkit-text-size-adjust: none;
 		font-size: 62.5% ;
 	}
-	/*body {
-		width: 100% ;
-	}*/	
 }
 
 /*宽度 320 － 375  ------ inphone 6 6s 7*/
@@ -470,36 +441,17 @@ input:focus {
 	html {
 		font-size: 75% ;
 	}
-	/*body {
-		width: 100% ;
-		padding: 0 ;
-		margin: 0;
-	}*/
-	
 }
 
 @media only screen and (min-width: 375px) and (max-width: 414px) {
 	html {
 		font-size: 87.5% ;
 	}
-
-	/*body {
-		width: 100% ;
-		padding: 0 ;
-		margin: 0;
-	}*/
-	
 }
 
 @media only screen and (min-width: 414px) and (max-width: 420px) {
 	html {
 		font-size: 100% ;
 	}
-
-	/*body {
-		width: 100% ;
-		padding: 0 ;
-		margin: 0;
-	}*/
 }
 

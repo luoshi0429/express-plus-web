@@ -8,7 +8,7 @@ class InfoList extends Component {
       return (
         <tr className={cls} key={currentIndex}>
           <td style={{width: '100px'}}><span>{i.time}</span></td>
-          <td><i className='fa fa-map-marker' /></td>
+          <td style={{width: '20px'}}><i className='fa fa-map-marker' /></td>
           <td><span>{i.context}</span></td>
         </tr>
       )
