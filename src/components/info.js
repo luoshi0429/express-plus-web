@@ -33,7 +33,6 @@ class Info extends Component {
       return (
         <div>
           <LoadView />
-          <InfoFooter com={this.state.headerInfo.num} />
         </div>
       )
     }
@@ -41,7 +40,7 @@ class Info extends Component {
       <div>
         <InfoHeader headerInfo={this.state.headerInfo} epInfo={this.state.epInfo} refreshData={this.fetchData.bind(this)} />
         <InfoList info={this.state.epInfo} />
-        <InfoFooter com={this.state.headerInfo.num} />
+        <InfoFooter num={this.state.headerInfo.num} />
       </div>
     )
   }

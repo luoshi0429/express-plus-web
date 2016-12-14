@@ -1,3 +1,4 @@
+/*通用*/
 body {
   width: 420px ;
   margin: 0 auto;
@@ -61,6 +62,7 @@ input:focus {
 	color: rgb(74,175,70);
 }
 
+/*---头部----start*/
 .header {
 	padding-top: 10px ;
 	padding-left: 10px ;
@@ -120,6 +122,9 @@ input:focus {
 	background-color: rgba(91,192,222,0.48);
 }
 
+/*---头部----end*/
+
+/*----设置-----start*/
 .setting {
 	margin: 20px ;
 }
@@ -359,4 +364,10 @@ input:focus {
 	padding: 6px 4px 4px 1px ;
 }
 
+/*宽度小于800*/
+@media screen and (max-width: 800) {
+	body: {
+		width: 100% ;
+	}
+}
 

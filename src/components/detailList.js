@@ -57,7 +57,7 @@ class DetailList extends Component {
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    if (nextContext) {
+    if (nextContext !== this.context) {
       var fDetails = []
       var details = this.state.save
       for (let i = 0; i < details.length; i++) {
@@ -87,7 +87,8 @@ class DetailList extends Component {
             num: r.nu,
             cncom: r.cncom,
             com: r.com,
-            isCheck: r.ischeck
+            isCheck: r.ischeck,
+            tags: detail.tags
           }
           if (r.status === '200') {
             const {context, time} = r.data[0]

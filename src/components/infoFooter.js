@@ -51,17 +51,20 @@ class InfoFooter extends Component {
 
   save () {
     var tags = this.state.tags
+    console.log(tags)
     if (tags.length === 0) {
       return
     }
     var details = JSON.parse(window.localStorage.getItem('SavedDetails'))
     for (let i = 0; i < details.length; i++) {
       var detail = details[i]
+      console.log(detail.num, this.props.num)
       if (detail.num === this.props.num) {
         detail.tags = tags
         break
       }
     }
+    console.log(details)
     window.localStorage.setItem('SavedDetails', JSON.stringify(details))
   }
 }
