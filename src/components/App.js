@@ -74,15 +74,15 @@ class App extends Component {
       <div>
         <div className='header'>
           <div className='button-container'>
-            <Link to='/detail' className='btn'>信息</Link>
-            <Link to='/setting' className='btn'>设置</Link>
+            <Link to='/detail' className='btn primary-bg'><i className='fa fa-list-ul' /></Link>
+            <Link to='/setting' className='btn info-bg'><i className='fa fa-cog' /></Link>
           </div>
           <div className='input-container'>
             <input ref='searchInput' type='text' placeholder='输入你的快递单号...' onChange={this.onChange.bind(this)} />
+            <button ref='searchBtn' className='search-btn' disabled={this.state.isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
+              <i className='fa fa-search' />
+            </button>
           </div>
-          <button ref='searchBtn' className='search-btn' disabled={this.state.isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
-            <i className='fa fa-search' />
-          </button>
           <TipView tips={this.state.tips} tipClicked={this.onSearchBtnClick.bind(this)} />
         </div>
         {this.props.children}

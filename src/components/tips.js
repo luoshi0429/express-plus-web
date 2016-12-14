@@ -32,6 +32,7 @@ var coms = {
 }
 
 var colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
+var colorIndex = []
 
 class TipView extends Component {
   searchTip (tip) {
@@ -39,13 +40,14 @@ class TipView extends Component {
   }
 
   render () {
-    var tips
-    if (this.props.tips.length > 0) {
-      tips = this.props.tips.map(function (tip, index) {
-        var color = colors[Math.floor(Math.random() * 4)]
-        var colorStyle = {backgroundColor: color}
-        return <li key={index} onClick={this.searchTip.bind(this, tip)}><span style={colorStyle}>{coms[tip.comCode] ? coms[tip.comCode] : tip.comCode}</span></li>
-      }, this)
+    var tips = []
+    for (let i = 0; i < this.props.tips.length; i++) {
+      if (i > 2) { break }
+      var tip = this.props.tips[i]
+      colorIndex.push(Math.floor(Math.random() * 4))
+      var color = colors[colorIndex[i]]
+      var colorStyle = {backgroundColor: color}
+      tips.push(<li key={i} onClick={this.searchTip.bind(this, tip)}><span style={colorStyle}>{coms[tip.comCode] || tip.comCode}</span></li>)
     }
     return (
       <ul className='tipView'>

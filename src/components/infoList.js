@@ -7,7 +7,7 @@ class InfoList extends Component {
       var cls = currentIndex % 2 === 0 ? 'tr-odd' : 'tr-even'
       return (
         <tr className={cls} key={currentIndex}>
-          <td><span>{i.time}</span></td>
+          <td style={{width: '100px'}}><span>{i.time}</span></td>
           <td><i className='fa fa-map-marker' /></td>
           <td><span>{i.context}</span></td>
         </tr>

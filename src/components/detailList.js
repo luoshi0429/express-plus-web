@@ -1,5 +1,6 @@
 // detailList.js
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import DetailItem from './detailItem'
 
 function computeTime (endDate, startDate) {
@@ -74,44 +75,53 @@ class DetailList extends Component {
   }
 
   componentDidMount () {
-    var details = JSON.parse(window.localStorage.getItem('SavedDetails')) || []
-    var data = []
-    var index = 0
-    details.map(function (detail, currentIndex, arr) {
-      var url = `http://192.168.1.69:3000/api/search?nu=${detail.num}&com=${detail.com}`
-      window.fetch(url)
-        .then(r => r.json())
-        .then(r => {
-          console.log(r)
-          var newItem = {
-            num: r.nu,
-            cncom: r.cncom,
-            com: r.com,
-            isCheck: r.ischeck,
-            tags: detail.tags
-          }
-          if (r.status === '200') {
-            const {context, time} = r.data[0]
-            newItem.context = context
-            newItem.time = computeTime(new Date(), new Date(time))
-          } else {
-            newItem.context = r.message
-            newItem.time = '几秒前'
-          }
-          data[currentIndex] = newItem
-          if (++index === arr.length) {
-            console.log(data)
-            this.setState({
-              details: data,
-              save: data
-            })
-          }
+    window.fetch('http://192.168.1.145:3004/data')
+      .then(r => r.json())
+      .then(r => {
+        console.log(r)
+        this.setState({
+          details: r,
+          save: r
         })
-        .catch(err => {
-          index++
-          console.error(err)
-        })
-    }, this)
+      })
+  //   var details = JSON.parse(window.localStorage.getItem('SavedDetails')) || []
+  //   var data = []
+  //   var index = 0
+  //   details.map(function (detail, currentIndex, arr) {
+  //     var url = `http://192.168.1.69:3000/api/search?nu=${detail.num}&com=${detail.com}`
+  //     window.fetch(url)
+  //       .then(r => r.json())
+  //       .then(r => {
+  //         console.log(r)
+  //         var newItem = {
+  //           num: r.nu,
+  //           cncom: r.cncom,
+  //           com: r.com,
+  //           ischeck: r.ischeck,
+  //           tags: detail.tags
+  //         }
+  //         if (r.status === '200') {
+  //           const {context, time} = r.data[0]
+  //           newItem.context = context
+  //           newItem.time = computeTime(new Date(), new Date(time))
+  //         } else {
+  //           newItem.context = r.message
+  //           newItem.time = '几秒前'
+  //         }
+  //         data[currentIndex] = newItem
+  //         if (++index === arr.length) {
+  //           console.log(data)
+  //           this.setState({
+  //             details: data,
+  //             save: data
+  //           })
+  //         }
+  //       })
+  //       .catch(err => {
+  //         index++
+  //         console.error(err)
+  //       })
+  //   }, this)
   }
 }
 

@@ -18,7 +18,7 @@ class DetailItem extends Component {
         <div className='detailItem-header clearfix'>
           <div className='float-left'>
             <span className='detailItem-number'>{this.props.detail.num}</span>
-            {this.props.detail.isCheck === '1' ? <i className='fa fa-check-square success' /> : <i className='fa fa-truck warning' />}
+            {this.props.detail.ischeck === '1' ? <i className='fa fa-check-square success' /> : <i className='fa fa-truck warning' />}
           </div>
           <div className='float-right'>
             <i className='fa fa-search info' onClick={this.search.bind(this)} />

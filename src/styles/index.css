@@ -1,10 +1,15 @@
 /*通用*/
+html {
+	height: 100% ;
+}
+
 body {
   width: 420px ;
   margin: 0 auto;
+  height: 100% ;
 }
 
-h1,h2,h3,h4,h5,h6,p,ul {
+h1,h2,h3,h4,h5,h6,p,ul,div {
 	margin: 0 ;
 	padding: 0
 }
@@ -12,6 +17,10 @@ h1,h2,h3,h4,h5,h6,p,ul {
 input {
 	border: 1px solid #c0c0c0 ;
 	outline: none ;
+	padding: 0 ;
+	box-sizing: border-box ;
+	margin: 0 ;
+	font-size: 1rem ;
 }
 
 input:focus {
@@ -62,40 +71,64 @@ input:focus {
 	color: rgb(74,175,70);
 }
 
+.primary {
+	color: #337ab7;
+}
+
+.primary-bg {
+	background-color: #337ab7;
+}
+
+.info-bg {
+	background-color: rgb(75,180,216) ;
+}
 /*---头部----start*/
 .header {
-	padding-top: 10px ;
+	/*padding-top: 10px ;
 	padding-left: 10px ;
-	padding-bottom: 5px ;
+	padding-bottom: 5px ;*/
+	padding: 0.8rem 0 0.8rem 0.8rem ;
 	border-bottom: 1px solid #ddd ;
+	width: 100% ;
+	z-index: 9 ;
+	/*position: relative;*/
 }
 
 .btn ,
 .btn:visited {
 	margin-right: 5px ;
-	width: 30px ;
+	/*width: 30px ;
 	height: 30px ;
-	display: inline-block ;
-	font-size: 12px ;
-	text-decoration: none ;
-	background-color: pink ;
-	text-align: center;
 	line-height: 30px ;
+	font-size: 12px ;*/
+	font-size: 1rem ;
+	width: 2.5rem;
+	height: 2.5rem ;
+	line-height: 2.5rem;
+	display: inline-block ;
+	text-decoration: none ;
+	text-align: center;
 	color: #fff ;
 }
 
 .header .input-container,
 .header .button-container {
 	display: inline-block;
+	width: 25% ;
 }
 
 .header .input-container {
-	margin-left: 15px;
+	/*margin-left: 15px;*/
+	width: 70% ;
+	padding: 0;
 }
 
 .header .input-container input {
-	width: 270px ;
-	height: 30px ;
+	/*width: 270px ;*/
+	/*height: 30px ;*/
+	/*width: 14rem ;*/
+	height: 2.5rem;
+	width: 82% ;
 }
 
 .header .input-container .tips {
@@ -107,11 +140,15 @@ input:focus {
 
 .search-btn {
 	margin-left: 5px ;	
-	background-color: pink ;
 	border: none ;
-	/*outline: none;*/
-	width: 30px ;
-	height: 30px ;
+	/*width: 30px ;
+	height: 30px ;*/
+	/*position: relative;
+	top: 1px ;*/
+	font-size: 1rem ;
+	width: 2.5rem;
+	height: 2.5rem ;
+	line-height: 2.5rem;
 	background-color: #5bc0de ;
 	color: #fff ;
 	cursor: pointer;
@@ -122,44 +159,74 @@ input:focus {
 	background-color: rgba(91,192,222,0.48);
 }
 
+.tipView {
+	list-style: none;
+	padding-left: 25% ;
+	margin-bottom: 5px ;
+}
+
+.tipView li {
+	display: inline-block;
+}
+
+.tipView li span {
+	color: #fff ;
+	font-size: 0.8rem ;
+	display: inline-block;
+	padding: 5px ;
+	margin-right: 0.8rem ;
+}
+
 /*---头部----end*/
 
 /*----设置-----start*/
 .setting {
-	margin: 20px ;
+	margin: 1.5rem ;
+}
+
+.setting h1 {
+	font-size: 2rem ;
 }
 
 .setting div {
-	margin-bottom: 10px ;
+	margin-bottom: 1rem ;
 }
 
 .setting p {
-	font-size: 12px ;
+	font-size: 0.8rem ;
 	color: #999 ;
 	text-indent: 1em ;
-	margin-top: 5px ;
+	margin-top: 0.5rem ;
 
 }
 
 .setting span {
-	font-size: 14px ;
+	font-size: 1rem ;
 	font-weight: bold ;
 }
 
 .copyright {
 	text-align: center ;
 	color: #999 ;
-	font-size: 12px ;
-	margin-top: 30px ;
+	font-size: 0.8rem ;
+	margin-top: 2rem ;
 }
+/*----设置-----end*/
 
+/*------详情----start*/
 .detail {
 	
 }
 
 .detailList {
-	max-height: 460px ;
-	min-height: 460px ;
+	/*max-height: 460px ;
+	min-height: 460px ;*/
+	/*max-height: */
+	position: absolute ;
+	top: 5rem;
+	bottom: 3em ;
+	left: 0 ;
+	right: 0 ;
 	overflow-y: auto ;
 }
 
@@ -167,28 +234,43 @@ input:focus {
 	width: 100% ;
 	height: 160px ;
 	color: #999 ;
-	font-size: 16px ;
+	/*font-size: 16px ;*/
+	font-size: 1rem ;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .detail-footer {
-	height: 39px ;
+	width: 100% ;
+	/*height: 39px ;
+	line-height: 39px ;*/
+	height: 3rem ;
+	/*line-height: 3rem ;*/
 	border-top: 1px solid #ccc ;
 	background-color: #ddd ;
+	position: absolute ;
+	bottom: 0;
+	z-index: 9 ;
 }
 
 .detail-footer input {
-	width: 300px ;
-	height: 20px ;
+	/*width: 300px ;*/
+	width: 85% ;
+	/*height: 20px ;*/
+	height: 2rem ;
 	border: 1px solid #ccc;
-	margin-top: 8px; 
+	margin-top: 0.5rem; 
 }
 
 .detailItem {
-	padding: 10px ;
+	/*padding: 10px ;*/
+	padding: 0.8rem ;
 	border-bottom: 1px solid #ddd ;
+}
+
+.detailItem-header {
+	font-size: 1.2rem ;
 }
 
 .detailItem-number {
@@ -196,23 +278,15 @@ input:focus {
 }
 
 .detailItem-content {
-	font-size: 12px ;
-	margin-top: 8px;
-	margin-bottom: 8px ;
+	font-size: 1rem ;
+	margin-top: 0.6rem;
+	margin-bottom: 0.6rem ;
 }
 
 .detailItem-footer {
-	/*height: 20px ;
-	line-height: 20px ;
-	padding-left: 15px ;
-	padding-right: 5px ;
-	background: url('../imgs/tag.png') no-repeat left;
-	background-color: rgb(179,179,179);
-	display: inline-block; */
 	color: #fff ;
-	font-size: 12px ;
+	font-size: 1rem ;
 	list-style: none ;
-
 }
 
 .detailItem-footer .epCom {
@@ -232,59 +306,74 @@ input:focus {
 
 .detailItem-footer span {
 	cursor: pointer ;
-	line-height: 18px ;
+	line-height: 1.5rem ;
 	padding: 3px 0;
-
 }
 
 .info-header {
-	padding: 10px 5px 3px 5px ;
+	/*padding: 10px 5px 3px 5px ;*/
+	font-size: 1rem ;
+	padding: 1rem ;
 }
 
-.info-headr p{
-	font-size: 12px ;
+.info-header p{
+	/*font-size: 12px ;*/
 	margin-top: 3px ;
+	z-index: 9;
 }
 
-.info-headr .ep-number {
+.info-header .ep-number {
 	font-weight: bold;
+	font-size: 1.2rem ;
+}
+
+.infoList {
+
 }
 
 .infoList-header {
 	background-color: #000 ;
 	color: #fff ;
-	font-size: 14px ;
+	/*font-size: 14px ;*/
+	font-size: 1rem ;
+	z-index: 9;
 }	
 
 .infoList-header div{
 	display: inline-block;
-	height: 30px ;
-	line-height: 30px ;
+	height: 2rem ;
+	line-height: 2rem ;
 }
 
 .info-update {
-	margin-left: 10px ;
+	margin-left: 0.5rem ;
 	display: inline-block;
 	width: 120px ;
 }
 
 .info-content {
 	display: inline-block;
-	width: 200px ;
+	/*width: 200px ;*/
 }
 
 .info-table {
-	max-height: 300px ;
+	/*max-height: 300px ;
+	overflow-y: auto ;*/
+	font-size: 1rem ;
 	overflow-y: auto ;
+	position: absolute;
+	top: 13.5rem ;
+	width: 100% ;
+	bottom: 3rem ;
 }
 
 .info-table table {
-	font-size: 14px ;
+	/*font-size: 14px ;*/
 	border-collapse: collapse ;
 }
 
 .info-table td {
-	padding: 5px ;
+	padding: 0.5rem 0 ;
 }
 
 .tr-even {
@@ -298,49 +387,40 @@ input:focus {
 	
 }
 
-.tipView {
-	list-style: none;
-	padding-left: 90px ;
-	margin-bottom: 5px ;
-}
-
-.tipView li {
-	display: inline-block;
-}
-
-.tipView li span {
-	color: #fff ;
-	font-size: 12px ;
-	display: inline-block;
-	padding: 5px ;
-	margin-right: 10px ;
-}
-
 .loadView {
 	width: 100% ;
 	height: 160px ;
 	color: #999 ;
-	font-size: 16px ;
+	font-size: 1rem ;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .info-footer {
-	padding: 8px ;
+	width: 100% ;
+	padding: 0.5rem ;
 	background-color: #f0f0f0 ;
 	border-top: 1px solid #c0c0c0 ;
+	position: absolute;
+	bottom: 0 ;
+	z-index: 9 ;
 }
 
 .info-footer input {
-	width: 300px ;
-	height: 20px ;
-	font-size: 12px ;
+	/*width: 300px ;*/
+	/*height: 20px ;*/
+	/*width: */
+	height: 2rem ;
 	margin-right: 5px ;
+	width: 66% ;
 }
 
 .info-footer button {
-	line-height: 24px ;
+	/*line-height: 24px ;*/
+	position: relative ;
+	top: -2px;
+	line-height: 2rem ;
 	padding: 0 8px ;
 	outline: none ;
 	border: none ;
@@ -359,15 +439,67 @@ input:focus {
 	display: inline-block;
 	margin-right: 8px ;
 	color: #fff ;
-	font-size: 14px ;
+	font-size: 1rem ;
 	background-color: #5bc0de ;
 	padding: 6px 4px 4px 1px ;
 }
 
-/*宽度小于800*/
-@media screen and (max-width: 800) {
-	body: {
-		width: 100% ;
+@media only screen and (min-width: 280px) and (max-width: 420px) {
+	body {
+		max-width: 100% ;
 	}
+
+	html {
+		overflow-x: hidden;	
+	}
+}
+
+/*宽度小于320 ---- iphone4 5 5s*/
+@media only screen and (min-width: 280px) and (max-width: 320px) {
+	html {
+		-webkit-text-size-adjust: none;
+		font-size: 62.5% ;
+	}
+	/*body {
+		width: 100% ;
+	}*/	
+}
+
+/*宽度 320 － 375  ------ inphone 6 6s 7*/
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+	html {
+		font-size: 75% ;
+	}
+	/*body {
+		width: 100% ;
+		padding: 0 ;
+		margin: 0;
+	}*/
+	
+}
+
+@media only screen and (min-width: 375px) and (max-width: 414px) {
+	html {
+		font-size: 87.5% ;
+	}
+
+	/*body {
+		width: 100% ;
+		padding: 0 ;
+		margin: 0;
+	}*/
+	
+}
+
+@media only screen and (min-width: 414px) and (max-width: 420px) {
+	html {
+		font-size: 100% ;
+	}
+
+	/*body {
+		width: 100% ;
+		padding: 0 ;
+		margin: 0;
+	}*/
 }
 
