@@ -26,7 +26,7 @@ class InfoFooter extends Component {
       return <li className='info-tag' style={colorStyle} key={currentIndex}><span><i className='fa fa-tag' />{tag}</span></li>
     }, this)
     return (
-      <div className='info-footer'>
+      <div className='info-footer' ref='infoFooter'>
         <i className='fa fa-tags fa-fw' />
         <input placeholder='标签用空格  隔开 eg: a b c' onChange={this.tagInputChanged.bind(this)} defaultValue={this.state.tags.join(' ')} />
         <button onClick={this.save.bind(this)}><i className='fa fa-save' />保存</button>
@@ -66,6 +66,14 @@ class InfoFooter extends Component {
     }
     console.log(details)
     window.localStorage.setItem('SavedDetails', JSON.stringify(details))
+  }
+
+  componentDidUpdate () {
+    var infoView = document.querySelector('.infoView')
+    var height = this.refs.infoFooter.clientHeight + 'px'
+    if (infoView && infoView.style.bottom !== height) {
+      infoView.style.bottom = height
+    }
   }
 }
 

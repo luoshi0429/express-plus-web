@@ -32,14 +32,16 @@ class Info extends Component {
     if (!this.state.fetchedData) {
       return (
         <div>
-          <LoadView />
+          <div className='infoView'><LoadView /></div>
         </div>
       )
     }
     return (
       <div>
-        <InfoHeader headerInfo={this.state.headerInfo} epInfo={this.state.epInfo} refreshData={this.fetchData.bind(this)} />
-        <InfoList info={this.state.epInfo} />
+        <div className='infoView'>
+          <InfoHeader headerInfo={this.state.headerInfo} epInfo={this.state.epInfo} refreshData={this.fetchData.bind(this)} />
+          <InfoList info={this.state.epInfo} />
+        </div>
         <InfoFooter num={this.state.headerInfo.num} />
       </div>
     )

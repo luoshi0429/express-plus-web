@@ -73,7 +73,7 @@ class MainHeader extends Component {
 
   render () {
     return (
-      <div className='header' ref='header' id='header'>
+      <div className='header' ref='header'>
         <div className='button-container'>
           <Link to='/detail' className='btn primary-bg'><i className='fa fa-list-ul' /></Link>
           <Link to='/setting' className='btn info-bg'><i className='fa fa-cog' /></Link>
@@ -90,10 +90,15 @@ class MainHeader extends Component {
   }
 
   componentDidUpdate () {
-    var detailList = document.getElementsByClassName('detailView')[0]
-    if (detailList) {
-      var height = ReactDOM.findDOMNode(this.refs.header).clientHeight
-      detailList.style.top = height + 'px'
+    var detailList = document.querySelector('.detailView')
+    var infoView = document.querySelector('.infoView')
+    var height = ReactDOM.findDOMNode(this.refs.header).clientHeight + 'px'
+    if (detailList && detailList.style.top !== height) {
+      detailList.style.top = height
+    }
+
+    if (infoView && infoView.style.top !== height) {
+      infoView.style.top = height
     }
   }
 }
