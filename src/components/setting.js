@@ -1,5 +1,6 @@
 // setting.js
 import React, {Component} from 'react'
+import '../styles/setting.css'
 
 class Setting extends Component {
   constructor () {

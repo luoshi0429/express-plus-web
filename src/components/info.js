@@ -5,6 +5,7 @@ import InfoList from './infoList'
 import LoadView from './loadView'
 import InfoFooter from './infoFooter'
 import {computeTime} from './Tool'
+import '../styles/info.css'
 
 class Info extends Component {
   constructor () {

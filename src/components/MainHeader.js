@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import {Link, browserHistory} from 'react-router'
 import 'whatwg-fetch'
 import TipView from './tips'
+import '../styles/mainHeader.css'
 
 class MainHeader extends Component {
   constructor (props) {
