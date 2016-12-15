@@ -1,6 +1,5 @@
 // detailList.js
 import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
 import DetailItem from './detailItem'
 
 function computeTime (endDate, startDate) {
@@ -26,18 +25,25 @@ class DetailList extends Component {
 
   render () {
     var isEmpty = (this.state.details === null) || this.state.details.length === 0
+    var subView
     if (isEmpty) {
-      return <div className='loadView'>还没有订阅任何快递...</div>
+      subView = <div className='loadView'>还没有订阅任何快递...</div>
     } else {
       var detailItems = this.state.details.map(function (detail, currentIndex) {
         return <DetailItem key={currentIndex} detail={detail} removeItem={this.removeItem.bind(this)} />
       }, this)
-      return (
-        <div className='detailList'>
+      subView = (
+        <div className='detailList' id='detailList' ref='detailList'>
           {detailItems}
         </div>
       )
     }
+
+    return (
+      <div className='detailView' ref='detailView'>
+        {subView}
+      </div>
+    )
   }
 
   removeItem (item) {
@@ -58,7 +64,7 @@ class DetailList extends Component {
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    if (nextContext !== this.context) {
+    if (nextContext.filter) {
       var fDetails = []
       var details = this.state.save
       for (let i = 0; i < details.length; i++) {
@@ -75,7 +81,8 @@ class DetailList extends Component {
   }
 
   componentDidMount () {
-    window.fetch('http://192.168.1.145:3004/data')
+    // 获取详情信息
+    window.fetch('http://192.168.1.105:3004/data')
       .then(r => r.json())
       .then(r => {
         console.log(r)

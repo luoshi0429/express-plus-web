@@ -60,7 +60,7 @@ class Info extends Component {
       fetchedData: false
     })
     // var url = `http://192.168.1.69:3000/api/search?nu=${num}&com=${com}`
-    var url = 'http://192.168.1.145:3005/info'
+    var url = 'http://192.168.1.105:3005/info'
     console.log(url)
     window.fetch(url)
       .then(r => r.json())
