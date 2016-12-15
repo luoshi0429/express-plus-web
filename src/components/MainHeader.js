@@ -57,7 +57,6 @@ class MainHeader extends Component {
   }
 
   onSearchBtnClick (com) {
-    console.log('onSearchBtnClick: ' + com)
     if (typeof com === 'object') {
       com = this.state.tips[0].comCode
     }
@@ -72,6 +71,7 @@ class MainHeader extends Component {
   }
 
   render () {
+    const {tips, isDisabled} = this.state
     return (
       <div className='header' ref='header'>
         <div className='button-container'>
@@ -81,10 +81,10 @@ class MainHeader extends Component {
         <div className='input-container'>
           <input ref='searchInput' type='text' placeholder='输入你的快递单号...' onChange={this.onChange.bind(this)} />
         </div>
-        <button ref='searchBtn' className='search-btn' disabled={this.state.isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
+        <button ref='searchBtn' className='search-btn' disabled={isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
           <i className='fa fa-search' />
         </button>
-        <TipView tips={this.state.tips} tipClicked={this.onSearchBtnClick.bind(this)} />
+        <TipView tips={tips} tipClicked={this.onSearchBtnClick.bind(this)} />
       </div>
     )
   }

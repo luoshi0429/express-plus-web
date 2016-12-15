@@ -15,6 +15,7 @@ class Setting extends Component {
   }
 
   render () {
+    const {checkedEp, checkedAuto, intervalValue} = this.state
     return (
       <div className='setting'>
         <div className='setting-container'>
@@ -23,15 +24,15 @@ class Setting extends Component {
             <p>如果觉得这个插件还蛮好用的，请到商店评价~<a href='#'>Web store</a></p>
           </div>
           <div>
-            <label><input type='checkbox' checked={this.state.checkedEp === '1'} onChange={this.checkedEp.bind(this)} /><span>只提示已签收快递</span></label>
+            <label><input type='checkbox' checked={checkedEp === '1'} onChange={this.checkedEp.bind(this)} /><span>只提示已签收快递</span></label>
             <p>默认开启，勾选后只有在快递状态为签收后才提示信息。</p>
           </div>
           <div>
-            <label><input type='checkbox' checked={this.state.checkedAuto === '1'} onChange={this.checkedAuto.bind(this)} /><span>自动查询</span></label>
+            <label><input type='checkbox' checked={checkedAuto === '1'} onChange={this.checkedAuto.bind(this)} /><span>自动查询</span></label>
             <p>默认开启，勾选后会间隔一段时间后后台查询未签收的快递</p>
           </div>
           <div>
-            <select defaultValue={this.state.intervalValue} onChange={this.selectChanged.bind(this)}>
+            <select defaultValue={intervalValue} onChange={this.selectChanged.bind(this)}>
               <option value='10'>10分钟</option>
               <option value='20'>20分钟</option>
               <option value='30'>30分钟</option>

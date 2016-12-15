@@ -19,7 +19,8 @@ class InfoFooter extends Component {
   }
 
   render () {
-    var tags = this.state.tags.map(function (tag, currentIndex) {
+    var tags = this.state.tags
+    var tagsLi = tags.map(function (tag, currentIndex) {
       this.colorIndex.push(Math.floor(Math.random() * 4))
       var color = colors[this.colorIndex[currentIndex]]
       var colorStyle = {backgroundColor: color}
@@ -28,10 +29,10 @@ class InfoFooter extends Component {
     return (
       <div className='info-footer' ref='infoFooter'>
         <i className='fa fa-tags fa-fw' />
-        <input placeholder='标签用空格  隔开 eg: a b c' onChange={this.tagInputChanged.bind(this)} defaultValue={this.state.tags.join(' ')} />
+        <input placeholder='标签用空格  隔开 eg: a b c' onChange={this.tagInputChanged.bind(this)} defaultValue={tags.join(' ')} />
         <button onClick={this.save.bind(this)}><i className='fa fa-save' />保存</button>
         <ul className='info-taglist'>
-          {tags}
+          {tagsLi}
         </ul>
       </div>
     )
@@ -66,6 +67,14 @@ class InfoFooter extends Component {
     }
     console.log(details)
     window.localStorage.setItem('SavedDetails', JSON.stringify(details))
+  }
+
+  componentDidMount () {
+    var infoView = document.querySelector('.infoView')
+    var height = this.refs.infoFooter.clientHeight + 'px'
+    if (infoView && infoView.style.bottom !== height) {
+      infoView.style.bottom = height
+    }
   }
 
   componentDidUpdate () {

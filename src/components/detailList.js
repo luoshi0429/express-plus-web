@@ -24,12 +24,13 @@ class DetailList extends Component {
   }
 
   render () {
-    var isEmpty = (this.state.details === null) || this.state.details.length === 0
+    var details = this.state.details
+    var isEmpty = (details === null) || details.length === 0
     var subView
     if (isEmpty) {
       subView = <div className='loadView'>还没有订阅任何快递...</div>
     } else {
-      var detailItems = this.state.details.map(function (detail, currentIndex) {
+      var detailItems = details.map(function (detail, currentIndex) {
         return <DetailItem key={currentIndex} detail={detail} removeItem={this.removeItem.bind(this)} />
       }, this)
       subView = (
@@ -48,17 +49,18 @@ class DetailList extends Component {
 
   removeItem (item) {
     var index = -1
-    this.state.details.map(function (detail, currentIndex) {
+    var details = this.state.details
+    details.map(function (detail, currentIndex) {
       if (detail.num === item.num) {
         index = currentIndex
       }
       return
     })
     if (index !== -1) {
-      this.state.details.splice(index, 1)
-      window.localStorage.setItem('SavedDetails', JSON.stringify(this.state.details))
+      details.splice(index, 1)
+      window.localStorage.setItem('SavedDetails', JSON.stringify(details))
       this.setState({
-        details: this.state.details
+        details: details
       })
     }
   }

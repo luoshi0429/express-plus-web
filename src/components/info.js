@@ -36,13 +36,14 @@ class Info extends Component {
         </div>
       )
     }
+    const {headerInfo, epInfo} = this.state
     return (
       <div>
         <div className='infoView'>
-          <InfoHeader headerInfo={this.state.headerInfo} epInfo={this.state.epInfo} refreshData={this.fetchData.bind(this)} />
-          <InfoList info={this.state.epInfo} />
+          <InfoHeader headerInfo={headerInfo} epInfo={epInfo} refreshData={this.fetchData.bind(this)} />
+          <InfoList info={epInfo} />
         </div>
-        <InfoFooter num={this.state.headerInfo.num} />
+        <InfoFooter num={headerInfo.num} />
       </div>
     )
   }

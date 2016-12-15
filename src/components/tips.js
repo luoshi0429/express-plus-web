@@ -36,7 +36,6 @@ var colorIndex = []
 
 class TipView extends Component {
   searchTip (tip) {
-    console.log('11111:' + tip)
     this.props.tipClicked(tip.comCode)
   }
 
