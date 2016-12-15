@@ -40,7 +40,7 @@ class Info extends Component {
     return (
       <div>
         <div className='infoView'>
-          <InfoHeader headerInfo={headerInfo} epInfo={epInfo} refreshData={this.fetchData.bind(this)} />
+          <InfoHeader headerInfo={headerInfo} refreshData={this.fetchData.bind(this)} />
           <InfoList info={epInfo} />
         </div>
         <InfoFooter num={headerInfo.num} />

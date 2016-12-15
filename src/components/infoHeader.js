@@ -63,6 +63,10 @@ class InfoHeader extends Component {
     this.props.refreshData()
   }
 }
+InfoHeader.propTypes = {
+  headerInfo: React.PropTypes.object,
+  refreshData: React.PropTypes.func
+}
 
 export default InfoHeader
 

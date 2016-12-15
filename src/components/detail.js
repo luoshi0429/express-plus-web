@@ -4,7 +4,6 @@ import DetailFooter from './detailfooter'
 import DetailList from './detailList'
 
 class Detail extends Component {
-
   constructor (props) {
     super(props)
     this.state = {

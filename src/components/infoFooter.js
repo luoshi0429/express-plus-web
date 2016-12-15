@@ -86,4 +86,8 @@ class InfoFooter extends Component {
   }
 }
 
+InfoFooter.propTypes = {
+  num: React.PropTypes.string
+}
+
 export default InfoFooter

@@ -36,4 +36,8 @@ class InfoList extends Component {
   }
 }
 
+InfoList.propTypes = {
+  info: React.PropTypes.array
+}
+
 export default InfoList

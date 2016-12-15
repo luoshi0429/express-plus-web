@@ -6,13 +6,13 @@ var colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
 
 class DetailItem extends Component {
   render () {
-    var tags = this.props.detail.tags || []
+    var detail = this.props.detail
+    var tags = detail.tags || []
     var tagLis = tags.map(function (tag, currentIndex) {
       var color = colors[Math.floor(Math.random() * 4)]
       var colorStyle = {backgroundColor: color}
       return <li key={currentIndex} onClick={this.filter.bind(this)} style={colorStyle}><span><i className='fa fa-tag' />{tag}</span></li>
     }, this)
-    var detail = this.props.detail
     return (
       <div className='detailItem'>
         <div className='detailItem-header clearfix'>
@@ -57,6 +57,11 @@ class DetailItem extends Component {
     var filter = e.target.innerText
     this.context.changeFilter(filter)
   }
+}
+
+DetailItem.propTypes = {
+  detail: React.PropTypes.object.isRequired,
+  removeItem: React.PropTypes.func
 }
 
 DetailItem.contextTypes = {

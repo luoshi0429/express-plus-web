@@ -40,10 +40,11 @@ class TipView extends Component {
   }
 
   render () {
-    var tips = []
-    for (let i = 0; i < this.props.tips.length; i++) {
+    var tips = this.props.tips
+    var tipLis = []
+    for (let i = 0; i < tips.length; i++) {
       if (i > 2) { break }
-      var tip = this.props.tips[i]
+      var tip = tips[i]
       colorIndex.push(Math.floor(Math.random() * 4))
       var color = colors[colorIndex[i]]
       var colorStyle = {backgroundColor: color}
@@ -51,10 +52,14 @@ class TipView extends Component {
     }
     return (
       <ul className='tipView'>
-        {tips}
+        {tipLis}
       </ul>
     )
   }
+}
+
+TipView.propTypes = {
+  tips: React.PropTypes.array
 }
 
 export default TipView
