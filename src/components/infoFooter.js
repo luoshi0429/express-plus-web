@@ -1,7 +1,6 @@
 // infoFooter.js
 import React, {Component} from 'react'
-
-var colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
+import {getRandomColor} from './Tool'
 
 class InfoFooter extends Component {
   constructor (props) {
@@ -15,14 +14,14 @@ class InfoFooter extends Component {
     this.state = {
       tags: currentDetail.tags || []
     }
-    this.colorIndex = []
+    this.colors = []
   }
 
   render () {
     var tags = this.state.tags
     var tagsLi = tags.map(function (tag, currentIndex) {
-      this.colorIndex.push(Math.floor(Math.random() * 4))
-      var color = colors[this.colorIndex[currentIndex]]
+      this.colors.push(getRandomColor())
+      var color = this.colors[currentIndex]
       var colorStyle = {backgroundColor: color}
       return <li className='info-tag' style={colorStyle} key={currentIndex}><span><i className='fa fa-tag' />{tag}</span></li>
     }, this)

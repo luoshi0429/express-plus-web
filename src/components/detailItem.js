@@ -1,15 +1,20 @@
 // detailItem.js
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
-
-var colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
+import {getRandomColor} from './Tool'
 
 class DetailItem extends Component {
+  constructor (props) {
+    super(props)
+    this.colors = []
+  }
+
   render () {
     var detail = this.props.detail
     var tags = detail.tags || []
     var tagLis = tags.map(function (tag, currentIndex) {
-      var color = colors[Math.floor(Math.random() * 4)]
+      this.colors.push(getRandomColor())
+      var color = this.colors[currentIndex]
       var colorStyle = {backgroundColor: color}
       return <li key={currentIndex} onClick={this.filter.bind(this)} style={colorStyle}><span><i className='fa fa-tag' />{tag}</span></li>
     }, this)

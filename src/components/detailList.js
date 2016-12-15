@@ -1,17 +1,7 @@
 // detailList.js
 import React, {Component} from 'react'
 import DetailItem from './detailItem'
-
-function computeTime (endDate, startDate) {
-  var deltaTime = endDate.getTime() - startDate.getTime()
-  var deltaData = new Date(deltaTime)
-  var year = deltaData.getYear() - 70
-  var month = deltaData.getMonth()
-  var day = deltaData.getDate() - 1
-  var hour = deltaData.getHours() - 7
-  var res = year > 0 ? (year + '年前') : (month > 0 ? (month + '月前') : (day > 0 ? (day + '天前') : ((hour > 0) ? (hour + '小时前') : '1小时前')))
-  return res
-}
+import computeTime from './Tool'
 
 class DetailList extends Component {
 
@@ -112,7 +102,7 @@ class DetailList extends Component {
   //         if (r.status === '200') {
   //           const {context, time} = r.data[0]
   //           newItem.context = context
-  //           newItem.time = computeTime(new Date(), new Date(time))
+  //           newItem.time = computeTime(new Date(), new Date(time), '前')
   //         } else {
   //           newItem.context = r.message
   //           newItem.time = '几秒前'

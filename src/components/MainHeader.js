@@ -40,6 +40,7 @@ class MainHeader extends Component {
     window.fetch(url)
       .then(r => r.json())
       .then(r => {
+        console.log(r)
         if (r.auto.length > 0) {
           this.setState({
             isDisabled: false

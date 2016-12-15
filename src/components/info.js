@@ -4,19 +4,7 @@ import InfoHeader from './infoHeader'
 import InfoList from './infoList'
 import LoadView from './loadView'
 import InfoFooter from './infoFooter'
-
-function computeTime (endStr, startStr) {
-  var endDate = new Date(endStr)
-  var startDate = new Date(startStr)
-  var deltaTime = endDate.getTime() - startDate.getTime()
-  var deltaData = new Date(deltaTime)
-  var year = deltaData.getYear() - 1970
-  var month = deltaData.getMonth()
-  var day = deltaData.getDate()
-  var hour = deltaData.getHours()
-  var res = year > 0 ? (year + '年内') : (month > 0 ? (month + '月内') : (day > 0 ? (day + '天内') : ((hour > 0) ? (hour + '小时内') : '一小时内')))
-  return res
-}
+import {computeTime} from './Tool'
 
 class Info extends Component {
   constructor () {
@@ -69,12 +57,9 @@ class Info extends Component {
       .then(r => r.json())
       .then(r => {
         console.log(r)
-        var time
-        if (r.data.length <= 0) {
-          time = '几秒前'
-        } else {
-          time = computeTime(r.data[0].time, r.data[r.data.length - 1].time)
-        }
+        var endDate = new Date(r.data[0].time)
+        var startDate = new Date(r.data[r.data.length - 1].time)
+        var time = r.data.length <= 0 ? '几秒前' : computeTime(endDate, startDate, '内')
         var headerInfo = {
           num: r.nu || num,
           com: r.com,
