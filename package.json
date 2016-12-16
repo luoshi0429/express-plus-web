@@ -11,6 +11,12 @@
     "react-router": "^3.0.0",
     "whatwg-fetch": "^2.0.1"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -1,0 +1,138 @@
+/*info.css*/
+
+
+/*------信息----start*/
+
+.infoView {
+	position: absolute ;
+	left: 0 ;
+	right: 0 ;
+	top: 5rem ;
+	bottom: 3rem;
+}
+
+.info-header {
+	font-size: 1rem ;
+	padding: 1rem ;
+}
+
+.info-header p{
+	margin-top: 3px ;
+}
+
+.info-header .ep-number {
+	font-weight: bold;
+	font-size: 1.2rem ;
+}
+
+.infoList {
+	
+}
+
+.infoList-header {
+	background-color: #000 ;
+	color: #fff ;
+	font-size: 1rem ;
+	z-index: 9;
+	position: relative;
+	height: 2rem ;
+}	
+
+.infoList-header div{
+	display: inline-block;
+	height: 2rem ;
+	line-height: 2rem ;
+}
+
+.info-update {
+	margin-left: 0.5rem ;
+	display: inline-block;
+	width: 120px ;
+}
+
+.info-content {
+	display: inline-block;
+	padding-left: 4rem ;
+}
+
+.info-table {
+	position: absolute ;
+	left: 0 ;
+	right: 0 ;
+	top: 7.65rem;
+	bottom: 0;
+	overflow-y: auto ;
+}
+
+.info-table table {
+	border-collapse: collapse ;
+	width: 100% ;
+}
+
+.info-table td {
+	padding: 0.5rem 1rem ;
+}
+
+.tr-even {
+	background-color: #f9f9f9 ;
+	border-top: 1px solid #e0e0e0 ;
+	border-bottom: 1px solid #e0e0e0 ;
+	padding: 5px 10px ;
+}
+
+.tr-odd {
+	background-color: #fff;
+    border-top: 1px solid #fff;
+    padding: 5px 10px;
+}
+
+.loadView {
+	width: 100% ;
+	height: 100% ;
+	color: #999 ;
+	font-size: 1rem ;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.info-footer {
+	padding: 0.5rem ;
+	background-color: #f0f0f0 ;
+	border-top: 1px solid #c0c0c0 ;
+	position: absolute;
+	bottom: 0 ;
+	left: 0 ;
+	right:  0;
+	z-index: 9 ;
+}
+
+.tagInput {
+	height: 2rem ;
+	margin-right: 5px ;
+	width: 70% ;
+}
+
+.info-footer button {
+	position: relative ;
+	top: -2px;
+	line-height: 2rem ;
+	padding: 0 8px ;
+	outline: none ;
+	border: none ;
+	background-color: #337ab7 ; 
+	cursor: pointer;
+	text-align: center ;
+	color: #fff ;
+}
+
+.info-taglist {
+	list-style: none;
+	margin-top: 6px;
+}
+
+.info-taglist li {
+	display: inline-block;
+}
+
+/*------信息----start*/
