@@ -1,0 +1,40 @@
+/*setting.css*/
+/*----设置-----start*/
+.setting {
+	padding: 1.5rem ;
+}
+
+.setting-container {
+	margin: 0 auto;
+	width: 420px ;
+}
+
+.setting h1 {
+	font-size: 2rem ;
+}
+
+.setting div {
+	margin-bottom: 1rem ;
+}
+
+.setting p {
+	font-size: 0.8rem ;
+	color: #999 ;
+	text-indent: 1em ;
+	margin-top: 0.5rem ;
+
+}
+
+.setting span {
+	font-size: 1rem ;
+	font-weight: bold ;
+}
+
+.copyright {
+	text-align: center ;
+	color: #999 ;
+	font-size: 0.8rem ;
+	margin-top: 2rem ;
+}
+/*----设置-----end*/
+

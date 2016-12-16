@@ -1,11 +1,22 @@
+/*通用*/
 body {
-  width: 420px ;
+  /*width: 420px ;*/
   margin: 0 auto;
+  height: 100% ;
 }
 
-h1,h2,h3,h4,h5,h6,p {
+h1,h2,h3,h4,h5,h6,p,ul,div {
 	margin: 0 ;
 	padding: 0
+}
+
+input {
+	border: 1px solid #c0c0c0 ;
+	outline: none ;
+	padding: 0 ;
+	box-sizing: border-box ;
+	margin: 0 ;
+	font-size: 1rem ;
 }
 
 input:focus {
@@ -56,169 +67,67 @@ input:focus {
 	color: rgb(74,175,70);
 }
 
-.header {
-	padding-top: 10px ;
-	padding-left: 10px ;
-	padding-bottom: 5px ;
-	border-bottom: 1px solid #ddd ;
+.primary {
+	color: #337ab7;
 }
 
-.btn ,
-.btn:visited {
-	margin-right: 5px ;
-	width: 30px ;
-	height: 30px ;
-	display: inline-block ;
-	font-size: 12px ;
-	text-decoration: none ;
-	background-color: pink ;
-	text-align: center;
-	line-height: 30px ;
+.primary-bg {
+	background-color: #337ab7;
+}
+
+.info-bg {
+	background-color: rgb(75,180,216) ;
+}
+
+
+.tag {
+	display: inline-block;
+	margin-right: 8px ;
 	color: #fff ;
+	font-size: 1rem ;
+	padding: 6px 4px 4px 1px ;
+	cursor: pointer;
 }
 
-.header .input-container,
-.header .button-container {
-	display: inline-block;
+.iconBtn {
+	font-size: 1.2rem ;
 }
 
-.header .input-container {
-	margin-left: 15px;
+/*-----适配相关----*/
+@media only screen and (min-width: 280px) and (max-width: 420px) {
+	body {
+		max-width: 100% ;
+		overflow-x: hidden ;
+	}
+
+	html {
+		height: 100% ;
+		overflow-x: hidden;
+	}
 }
 
-.header .input-container input {
-	width: 270px ;
-	height: 30px ;
+@media only screen and (min-width: 280px) and (max-width: 320px) {
+	html {
+		-webkit-text-size-adjust: none;
+		font-size: 62.5% ;
+	}
 }
 
-.header .input-container .tips {
-	background-color: pink ;
-	color: #fff;
-	font-size: 12px ;
-	padding: 5px 3px ;
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+	html {
+		font-size: 75% ;
+	}
 }
 
-.search-btn {
-	margin-left: 5px ;	
+@media only screen and (min-width: 375px) and (max-width: 414px) {
+	html {
+		font-size: 87.5% ;
+	}
 }
 
-.setting {
-	margin: 20px ;
+@media only screen and (min-width: 414px) and (max-width: 420px) {
+	html {
+		font-size: 100% ;
+	}
 }
-
-.setting p {
-	font-size: 12px ;
-	color: #999 ;
-	text-indent: 1em ;
-}
-
-.setting span {
-	font-size: 14px ;
-	font-weight: bold ;
-}
-
-.copyright {
-	text-align: center ;
-	color: #999 ;
-	font-size: 12px ;
-	margin-top: 30px ;
-}
-
-.detail {
-	
-}
-
-.detailList {
-	height: 550px ;
-}
-
-.detaillist-empty {
-	width: 100% ;
-	height: 160px ;
-	color: #999 ;
-	font-size: 16px ;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.detail-footer {
-	height: 39px ;
-	border-top: 1px solid #ccc ;
-	background-color: #ddd ;
-}
-
-.detail-footer input {
-	width: 300px ;
-	height: 20px ;
-	border: 1px solid #ccc;
-	margin-top: 8px; 
-}
-
-.detailItem {
-	padding: 10px ;
-	border-bottom: 1px solid #ddd ;
-}
-
-.detailItem-number {
-	font-weight: bolder ; 
-}
-
-.detailItem-content {
-	font-size: 12px ;
-	margin-top: 8px;
-	margin-bottom: 8px ;
-}
-
-.detailItem-footer {
-	height: 20px ;
-	line-height: 20px ;
-	padding-left: 15px ;
-	padding-right: 5px ;
-	background: url('../imgs/tag.png') no-repeat left;
-	background-color: rgb(179,179,179);
-	display: inline-block;
-	color: #fff ;
-	font-size: 12px ;
-}
-
-.info-header {
-	padding: 10px 5px 3px 5px ;
-}
-
-.infoList-header {
-	background-color: #000 ;
-	color: #fff ;
-	font-size: 14px ;
-}	
-
-.infoList-header div{
-	display: inline-block;
-	height: 30px ;
-	line-height: 30px ;
-}
-
-.info-update {
-	margin-left: 10px ;
-	display: inline-block;
-	width: 120px ;
-}
-
-.info-content {
-	display: inline-block;
-	width: 200px ;
-}
-
-.tr-even {
-	background-color: #f9f9f9 ;
-	border-top: 1px solid #e0e0e0 ;
-	border-bottom: 1px solid #e0e0e0 ;
-}
-
-.tr-odd {
-	
-}
-
-
-
 
