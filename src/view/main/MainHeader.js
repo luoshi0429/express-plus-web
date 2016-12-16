@@ -3,10 +3,11 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {Link, browserHistory} from 'react-router'
 import 'whatwg-fetch'
-import TipView from './tips'
-import '../styles/mainHeader.css'
-import Input from './Input'
-import Button from './Button'
+import TipView from '../../components/tips'
+import '../../styles/mainHeader.css'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
+import {getTipsAPT} from '../../tool/Tool'
 
 class MainHeader extends Component {
   constructor (props) {
@@ -19,7 +20,7 @@ class MainHeader extends Component {
   }
 
   onChange (e) {
-    var inputValue = e.target.value
+    const inputValue = e.target.value
     if (inputValue.length < 6) {
       if (!this.state.isDisabled) {
         this.setState({
@@ -30,7 +31,7 @@ class MainHeader extends Component {
       return
     }
 
-    var url = 'http://express-plus.leanapp.cn/api/auto?nu=' + inputValue
+    // var url = 'http://express-plus.leanapp.cn/api/auto?nu=' + inputValue
     // var myInit = {
     //   method: 'GET',
     //   mode: 'no-cors',
@@ -40,7 +41,7 @@ class MainHeader extends Component {
     //     'Referer': 'http://www.kuaidi100.com/'
     //   }
     // }
-    window.fetch(url)
+    window.fetch(getTipsAPT(inputValue))
       .then(r => r.json())
       .then(r => {
         console.log(r)
@@ -94,7 +95,7 @@ class MainHeader extends Component {
   componentDidUpdate () {
     var detailList = document.querySelector('.detailView')
     var infoView = document.querySelector('.infoView')
-    var height = ReactDOM.findDOMNode(this.refs.header).clientHeight + 'px'
+    const height = ReactDOM.findDOMNode(this.refs.header).clientHeight + 'px'
     if (detailList && detailList.style.top !== height) {
       detailList.style.top = height
     }

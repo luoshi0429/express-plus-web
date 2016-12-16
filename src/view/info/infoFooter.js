@@ -1,8 +1,8 @@
 // infoFooter.js
 import React, {Component} from 'react'
-import {getRandomColor} from './Tool'
-import Tag from './Tag'
-import Input from './Input'
+import {getRandomColor} from '../../tool/Tool'
+import Tag from '../../components/Tag'
+import Input from '../../components/Input'
 
 class InfoFooter extends Component {
   constructor (props) {
@@ -20,10 +20,10 @@ class InfoFooter extends Component {
   }
 
   render () {
-    var tags = this.state.tags
-    var tagsLi = tags.map(function (tag, currentIndex) {
+    const tags = this.state.tags
+    const tagsLi = tags.map(function (tag, currentIndex) {
       this.colors.push(getRandomColor())
-      var color = this.colors[currentIndex]
+      const color = this.colors[currentIndex]
       return <li key={currentIndex}><Tag tag={tag} color={color} /></li>
     }, this)
     return (
@@ -39,10 +39,9 @@ class InfoFooter extends Component {
   }
 
   tagInputChanged (e) {
-    var inputValue = e.target.value
-    var tags = inputValue.split(' ').filter(function (elm) {
-      if (elm.trim() !== '') {
-        return elm.trim()
+    const tags = e.target.value.split(' ').filter(function (elem) {
+      if (elem.trim() !== '') {
+        return elem.trim()
       }
     })
     this.setState({
@@ -51,7 +50,7 @@ class InfoFooter extends Component {
   }
 
   save () {
-    var tags = this.state.tags
+    const tags = this.state.tags
     console.log(tags)
     if (tags.length === 0) {
       return
@@ -70,16 +69,16 @@ class InfoFooter extends Component {
   }
 
   componentDidMount () {
-    var infoView = document.querySelector('.infoView')
-    var height = this.refs.infoFooter.clientHeight + 'px'
-    if (infoView && infoView.style.bottom !== height) {
-      infoView.style.bottom = height
-    }
+    this.refreshInfoView()
   }
 
   componentDidUpdate () {
-    var infoView = document.querySelector('.infoView')
-    var height = this.refs.infoFooter.clientHeight + 'px'
+    this.refreshInfoView()
+  }
+
+  refreshInfoView () {
+    const infoView = document.querySelector('.infoView')
+    const height = this.refs.infoFooter.clientHeight + 'px'
     if (infoView && infoView.style.bottom !== height) {
       infoView.style.bottom = height
     }

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import DetailFooter from './detailfooter'
 import DetailList from './detailList'
-import '../styles/detail.css'
+import '../../styles/detail.css'
 
 class Detail extends Component {
   constructor (props) {

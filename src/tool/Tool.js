@@ -11,11 +11,21 @@ export function computeTime (endDate, startDate, type) {
 }
 
 export function getRandomColor () {
-  var colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
+  const colors = ['pink', '#5bc0de', '#5cb85c', '#337ab7']
   var randomNum = Math.floor(Math.random() * colors.length)
   return colors[randomNum]
 }
 
-// module.exports = {
-//   computeTime: computeTime
-// }
+// num: 快递单号 com: 公司编码
+const baseURL = 'http://express-plus.leanapp.cn'
+export function getInfoAPI (num, com) {
+  var infoURL = `${baseURL}/api/search?nu=${num}&com=${com}`
+  return infoURL
+}
+
+export function getTipsAPT (num) {
+  return baseURL + '/api/auto?nu=' + num
+}
+
+export const testGetInfoAPI = 'http://localhost:3005/info'
+export const testGetDetailAPI = 'http://localhost:3004/data'

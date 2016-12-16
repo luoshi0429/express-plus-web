@@ -1,7 +1,7 @@
 // detailItem.js
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
-import {getRandomColor} from './Tool'
+import {getRandomColor} from '../tool/Tool'
 import Tag from './Tag'
 import Button from './Button'
 
@@ -12,12 +12,11 @@ class DetailItem extends Component {
   }
 
   render () {
-    var detail = this.props.detail
-    var tags = detail.tags || []
-    var tagLis = tags.map(function (tag, currentIndex) {
+    const detail = this.props.detail
+    const tags = detail.tags || []
+    const tagLis = tags.map(function (tag, currentIndex) {
       this.colors.push(getRandomColor())
-      var color = this.colors[currentIndex]
-      // var colorStyle = {backgroundColor: color}
+      const color = this.colors[currentIndex]
       return <li key={currentIndex} onClick={this.filter.bind(this)}><Tag tag={tag} color={color} /></li>
     }, this)
     return (
@@ -61,8 +60,7 @@ class DetailItem extends Component {
   }
 
   filter (e) {
-    var filter = e.target.innerText
-    console.log(filter)
+    const filter = e.target.innerText
     this.context.changeFilter(filter)
   }
 }

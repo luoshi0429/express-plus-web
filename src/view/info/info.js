@@ -3,8 +3,8 @@ import React, {Component} from 'react'
 import InfoHeader from './infoHeader'
 import InfoList from './infoList'
 import InfoFooter from './infoFooter'
-import {computeTime} from './Tool'
-import '../styles/info.css'
+import {computeTime, getInfoAPI, testGetInfoAPI} from '../../tool/Tool'
+import '../../styles/info.css'
 
 function LoadView () {
   return (
@@ -58,17 +58,17 @@ class Info extends Component {
     this.setState({
       fetchedData: false
     })
-    // var url = `http://192.168.1.69:3000/api/search?nu=${num}&com=${com}`
-    var url = 'http://localhost:3005/info'
+    // const url = getInfoAPI(num, com)
+    const url = testGetInfoAPI
     console.log(url)
     window.fetch(url)
       .then(r => r.json())
       .then(r => {
         console.log(r)
-        var endDate = new Date(r.data[0].time)
-        var startDate = new Date(r.data[r.data.length - 1].time)
-        var time = r.data.length <= 0 ? '几秒前' : computeTime(endDate, startDate, '内')
-        var headerInfo = {
+        const endDate = new Date(r.data[0].time)
+        const startDate = new Date(r.data[r.data.length - 1].time)
+        const time = r.data.length <= 0 ? '几秒前' : computeTime(endDate, startDate, '内')
+        const headerInfo = {
           num: r.nu || num,
           com: r.com,
           time: time,
@@ -81,7 +81,7 @@ class Info extends Component {
             headerInfo: headerInfo
           })
         } else {
-          var now = new Date()
+          const now = new Date()
           this.setState({
             fetchedData: true,
             epInfo: [{

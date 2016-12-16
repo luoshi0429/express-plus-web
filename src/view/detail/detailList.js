@@ -1,7 +1,7 @@
 // detailList.js
 import React, {Component} from 'react'
-import DetailItem from './detailItem'
-import computeTime from './Tool'
+import DetailItem from '../../components/detailItem'
+import {computeTime, getInfoAPI, testGetDetailAPI} from '../../tool/Tool'
 
 class DetailList extends Component {
 
@@ -15,12 +15,12 @@ class DetailList extends Component {
 
   render () {
     var details = this.state.details
-    var isEmpty = (details === null) || details.length === 0
+    const isEmpty = (details === null) || details.length === 0
     var subView
     if (isEmpty) {
       subView = <div className='loadView'>还没有订阅任何快递...</div>
     } else {
-      var detailItems = details.map(function (detail, currentIndex) {
+      const detailItems = details.map(function (detail, currentIndex) {
         return <DetailItem key={currentIndex} detail={detail} removeItem={this.removeItem.bind(this)} />
       }, this)
       subView = (
@@ -58,7 +58,7 @@ class DetailList extends Component {
   componentWillReceiveProps (nextProps, nextContext) {
     if (nextContext.filter !== this.context.filter) {
       var fDetails = []
-      var details = this.state.save
+      const details = this.state.save
       for (let i = 0; i < details.length; i++) {
         var detail = details[i]
         var detailStr = JSON.stringify(detail)
@@ -74,7 +74,7 @@ class DetailList extends Component {
 
   componentDidMount () {
     // 获取详情信息
-    window.fetch('http://localhost:3004/data')
+    window.fetch(testGetDetailAPI)
       .then(r => r.json())
       .then(r => {
         console.log(r)
@@ -83,11 +83,12 @@ class DetailList extends Component {
           save: r
         })
       })
+
   //   var details = JSON.parse(window.localStorage.getItem('SavedDetails')) || []
   //   var data = []
   //   var index = 0
   //   details.map(function (detail, currentIndex, arr) {
-  //     var url = `http://192.168.1.69:3000/api/search?nu=${detail.num}&com=${detail.com}`
+  //     const url = getInfoAPI(detail.num, detail.com)
   //     window.fetch(url)
   //       .then(r => r.json())
   //       .then(r => {

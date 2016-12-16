@@ -1,13 +1,13 @@
 // infoHeader.js
 import React, {Component} from 'react'
-import Button from './Button'
+import Button from '../../components/Button'
 
 class InfoHeader extends Component {
   constructor (props) {
     super(props)
     var saved = false
     var index
-    var items = JSON.parse(window.localStorage.getItem('SavedDetails'))
+    const items = JSON.parse(window.localStorage.getItem('SavedDetails'))
     if (items) {
       items.map(function (item, currentIndex, array) {
         if (item.num === props.headerInfo.num) {
@@ -24,7 +24,7 @@ class InfoHeader extends Component {
   render () {
     var starStyle = 'fa warning iconBtn'
     starStyle = starStyle + (this.state.hasSaved ? ' fa-star' : ' fa-star-o')
-    var headerInfo = this.props.headerInfo
+    const headerInfo = this.props.headerInfo
     return (
       <div className='info-header'>
         <div className='clearfix'>

@@ -1,8 +1,8 @@
 // tips.js
 import React, {Component} from 'react'
-import {getRandomColor} from './Tool'
+import {getRandomColor} from '../tool/Tool'
 
-var coms = {
+const coms = {
   'shunfeng': '顺丰',
   'zhaijisong': '宅急送',
   'zhongtong': '中通',
@@ -32,25 +32,25 @@ var coms = {
   'shunjiefengda': '顺捷丰达'
 }
 
-var colors = []
-
 class TipView extends Component {
+  constructor (props) {
+    super(props)
+    this.colors = []
+  }
+
   searchTip (tip) {
     this.props.tipClicked(tip.comCode)
   }
 
   render () {
-    console.log('tips:')
-    console.log(this.props.tips)
-    var tips = this.props.tips
+    const tips = this.props.tips
     var tipLis = []
     for (let i = 0; i < tips.length; i++) {
       if (i > 2) { break }
-      var tip = tips[i]
-      colors.push(getRandomColor())
-      var color = colors[i]
-      console.log(getRandomColor())
-      var colorStyle = {backgroundColor: color}
+      const tip = tips[i]
+      this.colors.push(getRandomColor())
+      const color = this.colors[i]
+      const colorStyle = {backgroundColor: color}
       tipLis.push(<li key={i} onClick={this.searchTip.bind(this, tip)}><span style={colorStyle}>{coms[tip.comCode] || tip.comCode}</span></li>)
     }
     return (

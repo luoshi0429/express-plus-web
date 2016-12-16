@@ -1,6 +1,6 @@
 // detailfooter.js
 import React, {Component} from 'react'
-import Input from './Input'
+import Input from '../../components/Input'
 class DetailFooter extends Component {
 
   constructor (props) {

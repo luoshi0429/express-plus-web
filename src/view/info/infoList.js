@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 class InfoList extends Component {
   render () {
     var tbs = this.props.info.map(function (i, currentIndex) {
-      var cls = currentIndex % 2 === 0 ? 'tr-odd' : 'tr-even'
+      const cls = currentIndex % 2 === 0 ? 'tr-odd' : 'tr-even'
       return (
         <tr className={cls} key={currentIndex}>
           <td style={{width: '100px'}}><span>{i.time}</span></td>

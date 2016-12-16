@@ -1,13 +1,13 @@
 // setting.js
 import React, {Component} from 'react'
-import '../styles/setting.css'
+import '../../styles/setting.css'
 
 class Setting extends Component {
   constructor () {
     super()
-    var checkedEp = window.localStorage.getItem('CheckedEp') || '1'
-    var checkedAuto = window.localStorage.getItem('checkedAuto') || '1'
-    var intervalValue = window.localStorage.getItem('SearchInterval') || 30
+    const checkedEp = window.localStorage.getItem('CheckedEp') || '1'
+    const checkedAuto = window.localStorage.getItem('checkedAuto') || '1'
+    const intervalValue = window.localStorage.getItem('SearchInterval') || 30
     this.state = {
       checkedEp: checkedEp,
       checkedAuto: checkedAuto,

@@ -1,10 +1,10 @@
 // routers.js
 import React from 'react'
-import App from './App.js'
+import App from './view/main/App.js'
 import {Route, IndexRoute} from 'react-router'
-import Detail from './detail'
-import Setting from './setting'
-import Info from './info'
+import Detail from './view/detail/detail'
+import Setting from './view/setting/setting'
+import Info from './view/info/info'
 module.exports = (
   <Route path='/' component={App}>
     <IndexRoute component={Detail} />
