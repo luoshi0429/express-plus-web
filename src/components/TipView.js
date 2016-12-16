@@ -33,10 +33,7 @@ const coms = {
 }
 
 class TipView extends Component {
-  constructor (props) {
-    super(props)
-    this.colors = []
-  }
+  colors = []
 
   searchTip (tip) {
     this.props.tipClicked(tip.comCode)

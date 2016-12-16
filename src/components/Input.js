@@ -4,7 +4,7 @@ import React, {Component, PropTypes} from 'react'
 class Input extends Component {
   constructor (props) {
     super(props)
-    this.value = ''
+    this.value = '';
   }
 
   render () {

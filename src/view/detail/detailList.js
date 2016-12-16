@@ -1,6 +1,6 @@
 // detailList.js
 import React, {Component} from 'react'
-import DetailItem from '../../components/detailItem'
+import DetailItem from '../../components/DetailItem'
 import {computeTime, getInfoAPI, testGetDetailAPI} from '../../tool/Tool'
 
 class DetailList extends Component {

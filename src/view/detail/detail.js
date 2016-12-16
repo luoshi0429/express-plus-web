@@ -1,7 +1,7 @@
 // detail.js
 import React, {Component} from 'react'
-import DetailFooter from './detailfooter'
-import DetailList from './detailList'
+import DetailFooter from './Detailfooter'
+import DetailList from './DetailList'
 import '../../styles/detail.css'
 
 class Detail extends Component {

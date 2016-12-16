@@ -1,16 +1,12 @@
 // Tag.js
-import React, {Component} from 'react'
+import React from 'react'
 
-class Tag extends Component {
-  render () {
-    return (
-      <span className='tag' style={{backgroundColor: this.props.color}} onClick={this.clicked.bind(this)}><i className='fa fa-tag' />{this.props.tag}</span>
-    )
-  }
-
-  clicked (e) {
-    this.props.onClick(e)
-  }
+const Tag = ({ color, tag, onClick }) => {
+  return (
+    <span className='tag' style={{backgroundColor: color}} onClick={onClick}>
+      <i className='fa fa-tag' />{tag}
+    </span>
+  )
 }
 
 Tag.propTypes = {

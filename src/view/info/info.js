@@ -1,8 +1,8 @@
 // info.js
 import React, {Component} from 'react'
-import InfoHeader from './infoHeader'
-import InfoList from './infoList'
-import InfoFooter from './infoFooter'
+import InfoHeader from './InfoHeader'
+import InfoList from './InfoList'
+import InfoFooter from './InfoFooter'
 import {computeTime, getInfoAPI, testGetInfoAPI} from '../../tool/Tool'
 import '../../styles/info.css'
 

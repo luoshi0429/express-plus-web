@@ -6,10 +6,7 @@ import Tag from './Tag'
 import Button from './Button'
 
 class DetailItem extends Component {
-  constructor (props) {
-    super(props)
-    this.colors = []
-  }
+  colors = []
 
   render () {
     const detail = this.props.detail
