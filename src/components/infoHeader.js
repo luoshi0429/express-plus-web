@@ -1,5 +1,6 @@
 // infoHeader.js
 import React, {Component} from 'react'
+import Button from './Button'
 
 class InfoHeader extends Component {
   constructor (props) {
@@ -21,7 +22,7 @@ class InfoHeader extends Component {
     }
   }
   render () {
-    var starStyle = 'float-right fa warning'
+    var starStyle = 'fa warning iconBtn'
     starStyle = starStyle + (this.state.hasSaved ? ' fa-star' : ' fa-star-o')
     var headerInfo = this.props.headerInfo
     return (
@@ -29,16 +30,15 @@ class InfoHeader extends Component {
         <div className='clearfix'>
           <div className='float-left'>
             <span className='ep-number'>{headerInfo.num}</span>
-            <i className='fa fa-refresh info' onClick={this.refreshData.bind(this)} />
+            <Button iconClassName='fa fa-refresh info iconBtn' onClick={this.refreshData.bind(this)} />
           </div>
-          <i className={starStyle} onClick={this.stared.bind(this)} />
+          <Button className='float-right ' iconClassName={starStyle} onClick={this.stared.bind(this)} />
         </div>
         <p>公司：<span>{headerInfo.cncom}</span></p>
         <p>耗时：<span>{headerInfo.time}</span></p>
       </div>
     )
   }
-
   stared (e) {
     this.setState({
       hasSaved: !this.state.hasSaved

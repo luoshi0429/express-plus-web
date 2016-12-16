@@ -2,10 +2,17 @@
 import React, {Component} from 'react'
 import InfoHeader from './infoHeader'
 import InfoList from './infoList'
-import LoadView from './loadView'
 import InfoFooter from './infoFooter'
 import {computeTime} from './Tool'
 import '../styles/info.css'
+
+function LoadView () {
+  return (
+    <div className='loadView'>
+      <i className='fa fa-refresh fa-spin' />正在查询...请稍后
+    </div>
+  )
+}
 
 class Info extends Component {
   constructor () {
@@ -21,7 +28,7 @@ class Info extends Component {
     if (!this.state.fetchedData) {
       return (
         <div>
-          <div className='infoView'><LoadView /></div>
+          <div className='infoView'>{LoadView()}</div>
         </div>
       )
     }
@@ -52,7 +59,7 @@ class Info extends Component {
       fetchedData: false
     })
     // var url = `http://192.168.1.69:3000/api/search?nu=${num}&com=${com}`
-    var url = 'http://192.168.1.105:3005/info'
+    var url = 'http://localhost:3005/info'
     console.log(url)
     window.fetch(url)
       .then(r => r.json())

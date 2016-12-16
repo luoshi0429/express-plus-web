@@ -1,19 +1,26 @@
 // detailfooter.js
 import React, {Component} from 'react'
+import Input from './Input'
 class DetailFooter extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      inputValue: ''
+    }
+  }
   render () {
     return (
       <div className='detail-footer'>
-        <i className='fa fa-filter' />
-        <input ref='filterInput' placeholder='过滤订阅列表...' type='text' onChange={this.changeFilter.bind(this)} />
+        <Input className='filterInput' iconClassName='fa fa-filter' value={this.state.inputValue} placeholder='过滤订阅列表...' type='search' onChange={this.changeFilter.bind(this)} />
       </div>
     )
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    if (nextContext.filter !== this.refs.filterInput.value) {
-      this.refs.filterInput.value = nextContext.filter
-    }
+    this.setState({
+      inputValue: nextContext.filter
+    })
   }
 
   changeFilter (e) {

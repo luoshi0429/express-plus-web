@@ -2,14 +2,14 @@
 
 
 /*------信息----start*/
-/*
+
 .infoView {
 	position: absolute ;
 	left: 0 ;
 	right: 0 ;
 	top: 5rem ;
 	bottom: 3rem;
-}*/
+}
 
 .info-header {
 	font-size: 1rem ;
@@ -18,7 +18,6 @@
 
 .info-header p{
 	margin-top: 3px ;
-	z-index: 9;
 }
 
 .info-header .ep-number {
@@ -27,7 +26,7 @@
 }
 
 .infoList {
-
+	
 }
 
 .infoList-header {
@@ -35,6 +34,8 @@
 	color: #fff ;
 	font-size: 1rem ;
 	z-index: 9;
+	position: relative;
+	height: 2rem ;
 }	
 
 .infoList-header div{
@@ -80,7 +81,9 @@
 }
 
 .tr-odd {
-	
+	background-color: #fff;
+    border-top: 1px solid #fff;
+    padding: 5px 10px;
 }
 
 .loadView {
@@ -104,7 +107,7 @@
 	z-index: 9 ;
 }
 
-.info-footer input {
+.tagInput {
 	height: 2rem ;
 	margin-right: 5px ;
 	width: 70% ;
@@ -128,12 +131,8 @@
 	margin-top: 6px;
 }
 
-.info-tag {
+.info-taglist li {
 	display: inline-block;
-	margin-right: 8px ;
-	color: #fff ;
-	font-size: 1rem ;
-	background-color: #5bc0de ;
-	padding: 6px 4px 4px 1px ;
 }
+
 /*------信息----start*/

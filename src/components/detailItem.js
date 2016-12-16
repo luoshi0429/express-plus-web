@@ -2,6 +2,8 @@
 import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
 import {getRandomColor} from './Tool'
+import Tag from './Tag'
+import Button from './Button'
 
 class DetailItem extends Component {
   constructor (props) {
@@ -15,8 +17,8 @@ class DetailItem extends Component {
     var tagLis = tags.map(function (tag, currentIndex) {
       this.colors.push(getRandomColor())
       var color = this.colors[currentIndex]
-      var colorStyle = {backgroundColor: color}
-      return <li key={currentIndex} onClick={this.filter.bind(this)} style={colorStyle}><span><i className='fa fa-tag' />{tag}</span></li>
+      // var colorStyle = {backgroundColor: color}
+      return <li key={currentIndex} onClick={this.filter.bind(this)}><Tag tag={tag} color={color} /></li>
     }, this)
     return (
       <div className='detailItem'>
@@ -26,8 +28,8 @@ class DetailItem extends Component {
             {detail.ischeck === '1' ? <i className='fa fa-check-square success' /> : <i className='fa fa-truck warning' />}
           </div>
           <div className='float-right'>
-            <i className='fa fa-search info' onClick={this.search.bind(this)} />
-            <i className='fa fa-trash-o danger' onClick={this.remove.bind(this)} />
+            <Button iconClassName='fa fa-search info iconBtn' onClick={this.search.bind(this)} />
+            <Button iconClassName='fa fa-trash-o danger iconBtn' onClick={this.remove.bind(this)} />
           </div>
         </div>
         <div className='detailItem-content'>
@@ -36,7 +38,7 @@ class DetailItem extends Component {
           <span>{detail.context}</span>
         </div>
         <ul className='detailItem-footer'>
-          <li onClick={this.filter.bind(this)} className='epCom'><span><i className='fa fa-tag' />{detail.cncom}</span></li>
+          <li onClick={this.filter.bind(this)}><Tag tag={detail.cncom} color='#c0c0c0' /></li>
           {tagLis}
         </ul>
       </div>
@@ -60,6 +62,7 @@ class DetailItem extends Component {
 
   filter (e) {
     var filter = e.target.innerText
+    console.log(filter)
     this.context.changeFilter(filter)
   }
 }

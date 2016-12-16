@@ -5,6 +5,8 @@ import {Link, browserHistory} from 'react-router'
 import 'whatwg-fetch'
 import TipView from './tips'
 import '../styles/mainHeader.css'
+import Input from './Input'
+import Button from './Button'
 
 class MainHeader extends Component {
   constructor (props) {
@@ -16,8 +18,8 @@ class MainHeader extends Component {
     this.height
   }
 
-  onChange () {
-    var inputValue = this.refs.searchInput.value
+  onChange (e) {
+    var inputValue = e.target.value
     if (inputValue.length < 6) {
       if (!this.state.isDisabled) {
         this.setState({
@@ -65,7 +67,7 @@ class MainHeader extends Component {
     browserHistory.push({
       pathname: '/info',
       query: {
-        num: this.refs.searchInput.value,
+        num: ReactDOM.findDOMNode(this.refs.searchInput).value,
         com: com
       }
     })
@@ -81,11 +83,9 @@ class MainHeader extends Component {
           <Link to='/setting' className='btn info-bg'><i className='fa fa-cog' /></Link>
         </div>
         <div className='input-container'>
-          <input ref='searchInput' type='text' placeholder='输入你的快递单号...' onChange={this.onChange.bind(this)} />
+          <Input ref='searchInput' className='headerInput' placeholder='输入你的快递单号...' onChange={this.onChange.bind(this)} />
         </div>
-        <button ref='searchBtn' className='search-btn' disabled={isDisabled} onClick={this.onSearchBtnClick.bind(this)}>
-          <i className='fa fa-search' />
-        </button>
+        <Button className='search-btn' iconClassName='fa fa-search' disabled={isDisabled} onClick={this.onSearchBtnClick.bind(this)} />
         <TipView tips={tips} tipClicked={this.onSearchBtnClick.bind(this)} />
       </div>
     )

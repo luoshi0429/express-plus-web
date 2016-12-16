@@ -1,6 +1,8 @@
 // infoFooter.js
 import React, {Component} from 'react'
 import {getRandomColor} from './Tool'
+import Tag from './Tag'
+import Input from './Input'
 
 class InfoFooter extends Component {
   constructor (props) {
@@ -22,13 +24,12 @@ class InfoFooter extends Component {
     var tagsLi = tags.map(function (tag, currentIndex) {
       this.colors.push(getRandomColor())
       var color = this.colors[currentIndex]
-      var colorStyle = {backgroundColor: color}
-      return <li className='info-tag' style={colorStyle} key={currentIndex}><span><i className='fa fa-tag' />{tag}</span></li>
+      return <li key={currentIndex}><Tag tag={tag} color={color} /></li>
     }, this)
     return (
       <div className='info-footer' ref='infoFooter'>
         <i className='fa fa-tags fa-fw' />
-        <input placeholder='标签用空格  隔开 eg: a b c' onChange={this.tagInputChanged.bind(this)} defaultValue={tags.join(' ')} />
+        <Input className='tagInput' placeholder='标签用空格  隔开 eg: a b c' onChange={this.tagInputChanged.bind(this)} defaultValue={tags.join(' ')} />
         <button onClick={this.save.bind(this)}><i className='fa fa-save' />保存</button>
         <ul className='info-taglist'>
           {tagsLi}

@@ -80,6 +80,19 @@ input:focus {
 }
 
 
+.tag {
+	display: inline-block;
+	margin-right: 8px ;
+	color: #fff ;
+	font-size: 1rem ;
+	padding: 6px 4px 4px 1px ;
+	cursor: pointer;
+}
+
+.iconBtn {
+	font-size: 1.2rem ;
+}
+
 /*-----适配相关----*/
 @media only screen and (min-width: 280px) and (max-width: 420px) {
 	body {

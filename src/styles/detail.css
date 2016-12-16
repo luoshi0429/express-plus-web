@@ -4,8 +4,7 @@
 	
 }
 
-.detailView,
-.infoView {
+.detailView {
 	position: absolute ;
 	top: 5rem;
 	bottom: 3em ;
@@ -40,7 +39,7 @@
 	z-index: 9 ;
 }
 
-.detail-footer input {
+.detail-footer .filterInput {
 	width: 85% ;
 	height: 2rem ;
 	border: 1px solid #ccc;
@@ -72,17 +71,17 @@
 	list-style: none ;
 }
 
-.detailItem-footer .epCom {
+/*.detailItem-footer .epCom {
 	background-color: rgb(179,179,179);
-}
+}*/
 
 .detailItem-footer li {
 	display: inline-block ;
 	margin-right: 8px ;
-	padding: 3px ;
+	/*padding: 3px ;*/
 }
 
-.detailItem-footer .fa {
+/*.detailItem-footer .fa {
 	margin: 0 ;
 	margin-right: 3px ;
 }
@@ -91,5 +90,5 @@
 	cursor: pointer ;
 	line-height: 1.5rem ;
 	padding: 3px 0;
-}
+}*/
 /*-----详情----end*/

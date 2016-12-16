@@ -56,7 +56,7 @@ class DetailList extends Component {
   }
 
   componentWillReceiveProps (nextProps, nextContext) {
-    if (nextContext.filter) {
+    if (nextContext.filter !== this.context.filter) {
       var fDetails = []
       var details = this.state.save
       for (let i = 0; i < details.length; i++) {
@@ -74,7 +74,7 @@ class DetailList extends Component {
 
   componentDidMount () {
     // 获取详情信息
-    window.fetch('http://192.168.1.105:3004/data')
+    window.fetch('http://localhost:3004/data')
       .then(r => r.json())
       .then(r => {
         console.log(r)
