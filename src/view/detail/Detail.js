@@ -1,4 +1,4 @@
-// detail.js
+// Detail.js
 import React, {Component} from 'react'
 import DetailFooter from './Detailfooter'
 import DetailList from './DetailList'
@@ -22,7 +22,7 @@ class Detail extends Component {
   render () {
     return (
       <div className='detail'>
-        <DetailList />
+        <DetailList ref='detailList' />
         <DetailFooter />
       </div>
     )

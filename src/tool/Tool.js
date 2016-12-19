@@ -23,7 +23,7 @@ export function getInfoAPI (num, com) {
   return infoURL
 }
 
-export function getTipsAPT (num) {
+export function getTipsAPI (num) {
   return baseURL + '/api/auto?nu=' + num
 }
 

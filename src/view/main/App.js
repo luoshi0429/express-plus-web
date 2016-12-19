@@ -1,17 +1,21 @@
 import React, {Component} from 'react'
 import 'whatwg-fetch'
-import MainHeader from './MainHeader'
+// import MainHeader from './MainHeader'
+import TabBar from './TabBar'
 
 class App extends Component {
   render () {
     return (
       <div>
-        <MainHeader />
-        {this.props.children}
+        <div id='container'>
+          {this.props.children}
+        </div>
+        <TabBar />
       </div>
     )
   }
 }
 
-export default App
+// <MainHeader />
 
+export default App

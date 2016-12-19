@@ -1,15 +1,15 @@
 /*mainHeader.css*/
 /*---头部----start*/
-.header {
+/*.header {
 	padding: 1rem 0 1rem 1rem ;
 	border-bottom: 1px solid #ddd ;
 	width: 100% ;
 	z-index: 9 ;
 	position: relative;
 	background-color: #fff;
-}
+}*/
 
-.btn ,
+/*.btn ,
 .btn:visited {
 	margin-right: 0.5rem ;
 	font-size: 1rem ;
@@ -20,8 +20,8 @@
 	text-decoration: none ;
 	text-align: center;
 	color: #fff ;
-}
-
+}*/
+/*
 .header .input-container,
 .header .button-container {
 	display: inline-block;
@@ -48,7 +48,7 @@
 }
 
 .search-btn {
-	margin-left: 0.5rem ;	
+	margin-left: 0.5rem ;
 	padding: 0 ;
 	border: none ;
 	font-size: 1rem ;
@@ -68,10 +68,10 @@
 }
 
 .search-btn:disabled {
-	cursor: default; 
+	cursor: default;
 	background-color: rgba(91,192,222,0.48);
-}
-
+}*/
+/*
 .tipView {
 	list-style: none;
 	padding-left: 25% ;
@@ -88,6 +88,6 @@
 	display: inline-block;
 	padding: 5px ;
 	margin-right: 0.8rem ;
-}
+}*/
 
 /*---头部----end*/

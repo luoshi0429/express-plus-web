@@ -14,9 +14,9 @@ class DetailList extends Component {
   }
 
   render () {
-    var details = this.state.details
+    let details = this.state.details
     const isEmpty = (details === null) || details.length === 0
-    var subView
+    let subView
     if (isEmpty) {
       subView = <div className='loadView'>还没有订阅任何快递...</div>
     } else {
@@ -38,8 +38,8 @@ class DetailList extends Component {
   }
 
   removeItem (item) {
-    var index = -1
-    var details = this.state.details
+    let index = -1
+    let details = this.state.details
     details.map(function (detail, currentIndex) {
       if (detail.num === item.num) {
         index = currentIndex
@@ -57,11 +57,11 @@ class DetailList extends Component {
 
   componentWillReceiveProps (nextProps, nextContext) {
     if (nextContext.filter !== this.context.filter) {
-      var fDetails = []
+      let fDetails = []
       const details = this.state.save
       for (let i = 0; i < details.length; i++) {
-        var detail = details[i]
-        var detailStr = JSON.stringify(detail)
+        let detail = details[i]
+        let detailStr = JSON.stringify(detail)
         if (detailStr.indexOf(nextContext.filter.trim()) !== -1) {
           fDetails.push(detail)
         }
@@ -84,16 +84,16 @@ class DetailList extends Component {
         })
       })
 
-  //   var details = JSON.parse(window.localStorage.getItem('SavedDetails')) || []
-  //   var data = []
-  //   var index = 0
+  //   let details = JSON.parse(window.localStorage.getItem('SavedDetails')) || []
+  //   let data = []
+  //   let index = 0
   //   details.map(function (detail, currentIndex, arr) {
   //     const url = getInfoAPI(detail.num, detail.com)
   //     window.fetch(url)
   //       .then(r => r.json())
   //       .then(r => {
   //         console.log(r)
-  //         var newItem = {
+  //         let newItem = {
   //           num: r.nu,
   //           cncom: r.cncom,
   //           com: r.com,

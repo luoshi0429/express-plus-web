@@ -1,22 +1,22 @@
 /*通用*/
 body {
-  /*width: 420px ;*/
+  /*width: 420px;*/
   margin: 0 auto;
-  height: 100% ;
+  height: 100%;
 }
 
 h1,h2,h3,h4,h5,h6,p,ul,div {
-	margin: 0 ;
+	margin: 0;
 	padding: 0
 }
 
 input {
-	border: 1px solid #c0c0c0 ;
-	outline: none ;
-	padding: 0 ;
-	box-sizing: border-box ;
-	margin: 0 ;
-	font-size: 1rem ;
+	border: 1px solid #c0c0c0;
+	outline: none;
+	padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	font-size: 1rem;
 }
 
 input:focus {
@@ -24,11 +24,11 @@ input:focus {
 }
 
 .fa {
-	margin: 0 5px ;
+	margin: 0 5px;
 }
 
 .hidden {
-	display: none ;
+	display: none;
 }
 
 .float-left {
@@ -44,15 +44,15 @@ input:focus {
 }
 
 .clearfix:after {
-	content: ' ' ;
-	clear: both ;
-	height: 0 ;
+	content: ' ';
+	clear: both;
+	height: 0;
 	visibility: hidden;
 	display: block;
 }
 
 .warning {
-	color: rgb(237,159,53) ;
+	color: rgb(237,159,53);
 }
 
 .danger {
@@ -60,7 +60,7 @@ input:focus {
 }
 
 .info {
-	color: rgb(75,180,216) ;
+	color: rgb(75,180,216);
 }
 
 .success {
@@ -76,32 +76,65 @@ input:focus {
 }
 
 .info-bg {
-	background-color: rgb(75,180,216) ;
+	background-color: rgb(75,180,216);
 }
-
 
 .tag {
 	display: inline-block;
-	margin-right: 8px ;
-	color: #fff ;
-	font-size: 1rem ;
-	padding: 6px 4px 4px 1px ;
+	margin-right: 8px;
+	color: #fff;
+	font-size: 1rem;
+	padding: 6px 4px 4px 1px;
 	cursor: pointer;
 }
 
 .iconBtn {
-	font-size: 1.2rem ;
+	font-size: 1.2rem;
+}
+
+#container {
+  position: absolute;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.tabbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 49px;
+  display: flex;
+  flex-direction: row;
+  background-color:#cfcdca;
+}
+
+.tabbar .tabbar-item {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.link {
+  color: #181516;
+}
+
+.activeStyle {
+  color: #e6750d;
 }
 
 /*-----适配相关----*/
 @media only screen and (min-width: 280px) and (max-width: 420px) {
 	body {
-		max-width: 100% ;
-		overflow-x: hidden ;
+		max-width: 100%;
+		overflow-x: hidden;
 	}
 
 	html {
-		height: 100% ;
+		height: 100%;
 		overflow-x: hidden;
 	}
 }
@@ -109,25 +142,24 @@ input:focus {
 @media only screen and (min-width: 280px) and (max-width: 320px) {
 	html {
 		-webkit-text-size-adjust: none;
-		font-size: 62.5% ;
+		font-size: 62.5%;
 	}
 }
 
 @media only screen and (min-width: 320px) and (max-width: 375px) {
 	html {
-		font-size: 75% ;
+		font-size: 75%;
 	}
 }
 
 @media only screen and (min-width: 375px) and (max-width: 414px) {
 	html {
-		font-size: 87.5% ;
+		font-size: 87.5%;
 	}
 }
 
 @media only screen and (min-width: 414px) and (max-width: 420px) {
 	html {
-		font-size: 100% ;
+		font-size: 100%;
 	}
 }
-
