@@ -4,7 +4,7 @@ import React, {Component, PropTypes} from 'react'
 class Input extends Component {
   constructor (props) {
     super(props)
-    this.value = '';
+    this.value = ''
   }
 
   render () {
@@ -27,10 +27,8 @@ class Input extends Component {
   }
 
   handleChange (e) {
-    if (this.props.onChange) {
-      this.props.onChange(e)
-      this.value = e.target.value
-    }
+    this.props.onChange(e)
+    this.value = e.target.value
   }
 }
 
@@ -54,7 +52,10 @@ Input.propTypes = {
 Input.defaultProps = {
   type: 'text',
   disabled: false,
-  rows: 1
+  rows: 1,
+  onBlur: () => {},
+  onChange: () => {},
+  onFocus: () => {}
 }
 
 export default Input

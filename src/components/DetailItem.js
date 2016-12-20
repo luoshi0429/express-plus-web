@@ -11,7 +11,7 @@ class DetailItem extends Component {
   render () {
     const detail = this.props.detail
     const tags = detail.tags || []
-    const tagLis = tags.map(function (tag, currentIndex) {
+    const tagLis = tags.map((tag, currentIndex) => {
       this.colors.push(getRandomColor())
       const color = this.colors[currentIndex]
       return <li key={currentIndex} onClick={this.filter.bind(this)}><Tag tag={tag} color={color} /></li>
@@ -34,7 +34,9 @@ class DetailItem extends Component {
           <span>{detail.context}</span>
         </div>
         <ul className='detailItem-footer'>
-          <li onClick={this.filter.bind(this)}><Tag tag={detail.cncom} color='#c0c0c0' /></li>
+          <li onClick={this.filter.bind(this)}>
+            <Tag tag={detail.cncom} color='#c0c0c0' />
+          </li>
           {tagLis}
         </ul>
       </div>

@@ -53,40 +53,49 @@ class DetailHeader extends Component {
     if (typeof com === 'object') {
       com = this.state.tips[0].comCode
     }
+
+    let num = ReactDOM.findDOMNode(this.refs.searchInput).value
     browserHistory.push({
       pathname: '/info',
       query: {
-        num: ReactDOM.findDOMNode(this.refs.searchInput).value,
+        num: num,
         com: com
       }
     })
+
+    let histories = JSON.parse(window.localStorage.getItem('Histories')) || []
+    if (histories.indexOf(num) === -1 && histories.indexOf(com) === -1) {
+      histories.push({num: num, com: com})
+      window.localStorage.setItem('Histories', JSON.stringify(histories))
+    }
   }
 
   render () {
     const {tips, isDisabled} = this.state
+    const searchBtnClick = this.onSearchBtnClick.bind(this)
     return (
       <div className='detail-header' ref='detailHeader'>
         <div className='input-container'>
           <Input ref='searchInput' className='headerInput' placeholder='输入你的快递单号...' onChange={this.onChange.bind(this)} />
-          <Button className='search-btn' iconClassName='fa fa-search' disabled={isDisabled} onClick={this.onSearchBtnClick.bind(this)} />
+          <Button className='search-btn' iconClassName='fa fa-search' disabled={isDisabled} onClick={searchBtnClick} />
         </div>
-        <TipView tips={tips} tipClicked={this.onSearchBtnClick.bind(this)} />
+        <TipView tips={tips} tipClicked={searchBtnClick} />
       </div>
     )
   }
 
   componentDidUpdate () {
     let detailList = document.querySelector('.detailView')
-    // var infoView = document.querySelector('.infoView')
+    var infoView = document.querySelector('.infoView')
     let detailHeader = this.refs.detailHeader
     const height = detailHeader.clientHeight + 'px'
     if (detailList && detailList.style.top !== height) {
       detailList.style.top = height
     }
 
-    // if (infoView && infoView.style.top !== height) {
-    //   infoView.style.top = height
-    // }
+    if (infoView && infoView.style.top !== height) {
+      infoView.style.top = height
+    }
   }
 }
 

@@ -5,11 +5,12 @@ class Button extends Component {
   render () {
     const {
       iconClassName,
+      value,
       ...other
     } = this.props
     return (
       <button {...other}>
-        <i className={iconClassName} />
+        <i className={iconClassName} />{value}
       </button>
     )
   }
@@ -21,7 +22,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   style: PropTypes.object,
-  iconClassName: PropTypes.string
+  iconClassName: PropTypes.string,
+  value: PropTypes.string
 }
 
 Button.defaultProps = {

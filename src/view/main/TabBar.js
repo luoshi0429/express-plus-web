@@ -7,22 +7,22 @@ class TabBar extends Component {
     return (
       <div className='tabbar'>
         <div className='tabbar-item'>
-          <Link to='/home/detail' className='link' activeClassName="activeStyle">
+          <Link to='/detail' className='link' activeClassName='activeStyle'>
             <i className='fa fa-list-ul' />
           </Link>
         </div>
         <div className='tabbar-item'>
-          <Link to='/history' className='link' activeClassName="activeStyle">
+          <Link to='/history' className='link' activeClassName='activeStyle'>
             <i className='fa  fa-history' />
           </Link>
         </div>
         <div className='tabbar-item'>
-          <Link className='link' activeClassName="activeStyle">
+          <Link className='link' activeClassName='activeStyle'>
             <i className='fa fa-map-marker' />
           </Link>
         </div>
         <div className='tabbar-item'>
-          <Link to='/setting' className='link' activeClassName="activeStyle">
+          <Link to='/setting' className='link' activeClassName='activeStyle'>
             <i className='fa fa-cog' />
           </Link>
         </div>

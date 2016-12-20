@@ -7,8 +7,10 @@
 	position: absolute ;
 	left: 0 ;
 	right: 0 ;
-	top: 5rem ;
-	bottom: 3rem;
+	/*top: 5rem ;*/
+	top: 0;
+	/*bottom: 3rem;*/
+	bottom: -3rem;
 }
 
 .info-header {
@@ -26,7 +28,7 @@
 }
 
 .infoList {
-	
+
 }
 
 .infoList-header {
@@ -36,7 +38,7 @@
 	z-index: 9;
 	position: relative;
 	height: 2rem ;
-}	
+}
 
 .infoList-header div{
 	display: inline-block;
@@ -120,7 +122,7 @@
 	padding: 0 8px ;
 	outline: none ;
 	border: none ;
-	background-color: #337ab7 ; 
+	background-color: #337ab7 ;
 	cursor: pointer;
 	text-align: center ;
 	color: #fff ;
