@@ -1,13 +1,14 @@
 // setting.js
 import React, {Component} from 'react'
 import '../../styles/setting.css'
+import {getCheckedEp, saveCheckedEp, getCheckedAuto, saveCheckedAuto, getSearchInterval, saveSearchInterval} from '../../tool/data'
 
 class Setting extends Component {
   constructor () {
     super()
-    const checkedEp = window.localStorage.getItem('CheckedEp') || '1'
-    const checkedAuto = window.localStorage.getItem('checkedAuto') || '1'
-    const intervalValue = window.localStorage.getItem('SearchInterval') || 30
+    const checkedEp = getCheckedEp() || '1'
+    const checkedAuto = getCheckedAuto() || '1'
+    const intervalValue = getSearchInterval() || 30
     this.state = {
       checkedEp: checkedEp,
       checkedAuto: checkedAuto,
@@ -53,7 +54,7 @@ class Setting extends Component {
     this.setState({
       checkedEp: e.target.checked ? '1' : '0'
     }, function () {
-      window.localStorage.setItem('CheckedEp', this.state.checkedEp)
+      saveCheckedEp(this.state.checkedEp)
     })
   }
 
@@ -61,12 +62,12 @@ class Setting extends Component {
     this.setState({
       checkedAuto: e.target.checked ? '1' : '0'
     }, function () {
-      window.localStorage.setItem('checkedAuto', this.state.checkedAuto)
+      saveCheckedAuto(this.state.checkedAuto)
     })
   }
 
   selectChanged (e) {
-    window.localStorage.setItem('SearchInterval', e.target.value)
+    saveSearchInterval(e.target.value)
     this.setState({
       intervalValue: e.target.value
     })

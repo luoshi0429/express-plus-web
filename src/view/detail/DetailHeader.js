@@ -62,12 +62,6 @@ class DetailHeader extends Component {
         com: com
       }
     })
-
-    let histories = JSON.parse(window.localStorage.getItem('Histories')) || []
-    if (histories.indexOf(num) === -1 && histories.indexOf(com) === -1) {
-      histories.push({num: num, com: com})
-      window.localStorage.setItem('Histories', JSON.stringify(histories))
-    }
   }
 
   render () {

@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import InfoHeader from './InfoHeader'
 import InfoList from './InfoList'
 import InfoFooter from './InfoFooter'
-import {computeTime, getInfoAPI, testGetInfoAPI} from '../../tool/Tool'
+import {computeTime, testGetInfoAPI} from '../../tool/Tool'
 import '../../styles/info.css'
 
 function LoadView () {

@@ -1,13 +1,14 @@
 // infoHeader.js
 import React, {Component} from 'react'
 import Button from '../../components/Button'
+import {getDetailLocal, saveDetailLocal} from '../../tool/data'
 
 class InfoHeader extends Component {
   constructor (props) {
     super(props)
     var saved = false
     var index
-    const items = JSON.parse(window.localStorage.getItem('SavedDetails'))
+    const items = getDetailLocal()
     if (items) {
       items.map(function (item, currentIndex, array) {
         if (item.num === props.headerInfo.num) {
@@ -45,18 +46,17 @@ class InfoHeader extends Component {
     })
     // 保存数据 or 删除数据
     const {num, com} = this.props.headerInfo
-    var items = JSON.parse(window.localStorage.getItem('SavedDetails')) || []
+    var items = getDetailLocal() || []
     if (!this.state.hasSaved) {
       var newItem = {
         num: num,
         com: com
       }
       items.unshift(newItem)
-      window.localStorage.setItem('SavedDetails', JSON.stringify(items))
     } else {
       items.splice(this.state.index, 1)
-      window.localStorage.setItem('SavedDetails', JSON.stringify(items))
     }
+    saveDetailLocal(items)
   }
 
   refreshData () {
@@ -69,4 +69,3 @@ InfoHeader.propTypes = {
 }
 
 export default InfoHeader
-

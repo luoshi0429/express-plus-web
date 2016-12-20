@@ -2,6 +2,11 @@
 
 // 本地存取
 const HISTORY_KEY = 'Histories'
+const AUTO_KEY = 'CheckedAuto'
+const CHECKED_KEY = 'CheckedEp'
+const INTERVAL_KEY = 'IntervalValue'
+const DETAILS_KEY = 'SavedDetails'
+
 export function getHistory () {
   return JSON.parse(window.localStorage.getItem(HISTORY_KEY)) || []
 }
@@ -19,33 +24,33 @@ export function clearHistories () {
 }
 
 export function getDetailLocal () {
-
+  return JSON.parse(window.localStorage.getItem(DETAILS_KEY)) || []
 }
 
-export function saveDetailLocal () {
-
+export function saveDetailLocal (val) {
+  window.localStorage.setItem(DETAILS_KEY, JSON.stringify(val))
 }
 
 export function getCheckedEp () {
-
+  return window.localStorage.getItem(CHECKED_KEY)
 }
 
-export function saveCheckedEp () {
-
+export function saveCheckedEp (val) {
+  window.localStorage.setItem(CHECKED_KEY, val)
 }
 
 export function getSearchInterval () {
-
+  return window.localStorage.getItem(INTERVAL_KEY)
 }
 
-export function saveSearchInterval () {
-
+export function saveSearchInterval (val) {
+  window.localStorage.setItem(INTERVAL_KEY, val)
 }
 
 export function getCheckedAuto () {
-
+  return window.localStorage.getItem(AUTO_KEY)
 }
 
-export function saveCheckedAuto () {
-
+export function saveCheckedAuto (val) {
+  window.localStorage.setItem(AUTO_KEY, val)
 }
