@@ -1,31 +1,13 @@
 // infoHeader.js
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Button from '../../components/Button'
-import {getDetailLocal, saveDetailLocal} from '../../tool/data'
-
+import { connect } from 'react-redux'
+import { removeDetailLocal, addDetailLocal, starDetail } from '../../actions/action'
 class InfoHeader extends Component {
-  constructor (props) {
-    super(props)
-    var saved = false
-    var index
-    const items = getDetailLocal()
-    if (items) {
-      items.map(function (item, currentIndex, array) {
-        if (item.num === props.headerInfo.num) {
-          saved = true
-          index = currentIndex
-        }
-      })
-    }
-    this.state = {
-      hasSaved: saved,
-      index: index
-    }
-  }
   render () {
+    const { hasSaved, headerInfo } = this.props
     var starStyle = 'fa warning iconBtn'
-    starStyle = starStyle + (this.state.hasSaved ? ' fa-star' : ' fa-star-o')
-    const headerInfo = this.props.headerInfo
+    starStyle = starStyle + (hasSaved ? ' fa-star' : ' fa-star-o')
     return (
       <div className='info-header'>
         <div className='clearfix'>
@@ -41,22 +23,14 @@ class InfoHeader extends Component {
     )
   }
   stared (e) {
-    this.setState({
-      hasSaved: !this.state.hasSaved
-    })
-    // 保存数据 or 删除数据
-    const {num, com} = this.props.headerInfo
-    var items = getDetailLocal() || []
-    if (!this.state.hasSaved) {
-      var newItem = {
-        num: num,
-        com: com
-      }
-      items.unshift(newItem)
+    const { num, com } = this.props.headerInfo
+    const { dispatch, hasSaved } = this.props
+    dispatch(starDetail(num))
+    if (hasSaved) {
+      dispatch(removeDetailLocal(num, com))
     } else {
-      items.splice(this.state.index, 1)
+      dispatch(addDetailLocal(num, com))
     }
-    saveDetailLocal(items)
   }
 
   refreshData () {
@@ -68,4 +42,16 @@ InfoHeader.propTypes = {
   refreshData: React.PropTypes.func
 }
 
-export default InfoHeader
+InfoHeader.defaultProps = {
+  refreshData: () => {}
+}
+
+const mapStateToProps = (state) => {
+  const { hasSaved, index } = state.info
+  return {
+    hasSaved: hasSaved,
+    index: index
+  }
+}
+
+export default connect(mapStateToProps)(InfoHeader)

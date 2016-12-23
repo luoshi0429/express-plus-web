@@ -1,4 +1,4 @@
-// DetailHeader.js
+// DetailHeader.js - 废弃
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import TipView from '../../components/TipView'

@@ -21,13 +21,12 @@ class App extends Component {
   }
 
   onSearch () {
+    console.log(this.props)
     const {rightBarTitle} = this.props.routes[1]
     if (rightBarTitle === '取消') {
-      console.log(rightBarTitle)
       browserHistory.goBack()
       return
     }
-    console.log('search...')
     browserHistory.push({
       pathname: '/search'
     })

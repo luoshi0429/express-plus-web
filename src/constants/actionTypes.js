@@ -1,0 +1,22 @@
+export const ADD_DETAILLOCAL = 'ADD_DETAILLOCAL'
+export const REMOVE_DETAILLOCAL = 'REMOVE_DETAILLOCAL'
+export const REMOVE_DETAIL = 'REMOVE_DETAIL'
+export const REQUEST_DETAILS = 'REQUEST_DETAILS'
+export const RECEIVE_DETAILS = 'RECEIVE_DETAILS'
+export const SELECT_DETAIL = 'SELECT_DETAIL'
+
+export const REQUEST_INFO = 'REQUEST_INFO'
+export const RECEIVE_INFO = 'RECEIVE_INFO'
+
+export const STAR_DETAIL = 'STAR_DETAIL'
+
+export const CHANGE_FILTER = 'CHANGE_FILTER'
+export const GET_FILTER = 'GET_FILTER'
+export const SAVE_FILTER = 'SAVE_FILTER'
+
+export const GET_HISTORY = 'GET_HISTORY'
+export const CLEAR_HISTORY = 'REMOVE_HISTORY'
+export const SAVE_HISTORY = 'SAVE_HISTORY'
+
+export const GET_TIP = 'GET_TIP'
+export const CLEAR_TIP = 'CLEAR_TIP'

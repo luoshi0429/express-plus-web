@@ -4,7 +4,8 @@ import {browserHistory} from 'react-router'
 import {getRandomColor} from '../tool/Tool'
 import Tag from './Tag'
 import Button from './Button'
-
+import { getFilter } from '../actions/action'
+import { connect } from 'react-redux'
 class DetailItem extends Component {
   colors = []
 
@@ -49,6 +50,7 @@ class DetailItem extends Component {
 
   search () {
     const {num, com} = this.props.detail
+    this.props.dispatch(getFilter(num))
     browserHistory.push({
       pathname: '/info',
       query: {
@@ -73,4 +75,4 @@ DetailItem.contextTypes = {
   changeFilter: React.PropTypes.func
 }
 
-export default DetailItem
+export default connect()(DetailItem)

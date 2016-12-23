@@ -54,3 +54,19 @@ export function getCheckedAuto () {
 export function saveCheckedAuto (val) {
   window.localStorage.setItem(AUTO_KEY, val)
 }
+
+export function getFilter () {
+  return JSON.parse(window.localStorage.getItem('SavedDetails')) || []
+}
+
+export function saveFilter (num, tags) {
+  let details = getFilter()
+  for (let i = 0; i < details.length; i++) {
+    var detail = details[i]
+    if (detail.num === num) {
+      detail.tags = tags
+      break
+    }
+  }
+  window.localStorage.setItem('SavedDetails', JSON.stringify(details))
+}

@@ -3,24 +3,14 @@ import React, {Component} from 'react'
 import {getRandomColor} from '../../tool/Tool'
 import Tag from '../../components/Tag'
 import Input from '../../components/Input'
+import { connect } from 'react-redux'
+import { saveFilter, changeFilter } from '../../actions/action'
 
 class InfoFooter extends Component {
-  constructor (props) {
-    super(props)
-    var currentDetail = JSON.parse(window.localStorage.getItem('SavedDetails')).filter(function (ele) {
-      return ele.num === props.num
-    }, this)
-    if (currentDetail.length > 0) {
-      currentDetail = currentDetail[0]
-    }
-    this.state = {
-      tags: currentDetail.tags || []
-    }
-    this.colors = []
-  }
+  colors = []
 
   render () {
-    const tags = this.state.tags
+    const tags = this.props.tags
     const tagsLi = tags.map(function (tag, currentIndex) {
       this.colors.push(getRandomColor())
       const color = this.colors[currentIndex]
@@ -44,44 +34,12 @@ class InfoFooter extends Component {
         return elem.trim()
       }
     })
-    this.setState({
-      tags: tags
-    })
+    this.props.dispatch(changeFilter(tags))
   }
 
   save () {
-    const tags = this.state.tags
-    console.log(tags)
-    if (tags.length === 0) {
-      return
-    }
-    var details = JSON.parse(window.localStorage.getItem('SavedDetails'))
-    for (let i = 0; i < details.length; i++) {
-      var detail = details[i]
-      console.log(detail.num, this.props.num)
-      if (detail.num === this.props.num) {
-        detail.tags = tags
-        break
-      }
-    }
-    console.log(details)
-    window.localStorage.setItem('SavedDetails', JSON.stringify(details))
-  }
-
-  componentDidMount () {
-    this.refreshInfoView()
-  }
-
-  componentDidUpdate () {
-    this.refreshInfoView()
-  }
-
-  refreshInfoView () {
-    const infoView = document.querySelector('.infoView')
-    const height = this.refs.infoFooter.clientHeight + 'px'
-    if (infoView && infoView.style.bottom !== height) {
-      infoView.style.bottom = height
-    }
+    const {dispatch, tags, num} = this.props
+    dispatch(saveFilter(num, tags))
   }
 }
 
@@ -89,4 +47,10 @@ InfoFooter.propTypes = {
   num: React.PropTypes.string
 }
 
-export default InfoFooter
+const mapStateToProps = (state) => {
+  const { filterTags } = state.info
+  return {
+    tags: filterTags
+  }
+}
+export default connect(mapStateToProps)(InfoFooter)
