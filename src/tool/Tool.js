@@ -27,8 +27,8 @@ export function getTipsAPI (num) {
   return baseURL + '/api/auto?nu=' + num
 }
 
-export const testGetInfoAPI = 'http://localhost:3005/info'
-export const testGetDetailAPI = 'http://localhost:3004/data'
+export const testGetInfoAPI = 'http://localhost:3004/info'
+export const testGetDetailAPI = 'http://localhost:3004/detail'
 
 export const coms = {
   'shunfeng': '顺丰',

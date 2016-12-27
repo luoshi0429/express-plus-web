@@ -1,23 +1,42 @@
 /*setting.css*/
 /*----设置-----start*/
 .setting {
-	padding: 1.5rem ;
+	/*padding: 1.5rem 0;*/
 }
 
-.setting-container {
+/*.setting-container {
 	margin: 0 auto;
 	width: 420px ;
+}*/
+
+.setting-item {
+	border-bottom: 1px solid #ccc;
+	padding: 0.5rem 2rem 0.5rem 0.5rem;
+	height: 2rem;
+	line-height: 2rem;
 }
 
-.setting h1 {
+.setting-item .title {
+	font-size: 1rem;
+}
+
+.setting-item a,
+.setting-item a:visited {
+	text-decoration: none;
+	color: #000;
+	border: none;
+	padding: 0;
+}
+
+/*.setting h1 {
 	font-size: 2rem ;
-}
+}*/
 
-.setting div {
+/*.setting div {
 	margin-bottom: 1rem ;
-}
+}*/
 
-.setting p {
+/*.setting p {
 	font-size: 0.8rem ;
 	color: #999 ;
 	text-indent: 1em ;
@@ -28,7 +47,7 @@
 .setting span {
 	font-size: 1rem ;
 	font-weight: bold ;
-}
+}*/
 
 .copyright {
 	text-align: center ;
@@ -37,4 +56,3 @@
 	margin-top: 2rem ;
 }
 /*----设置-----end*/
-
