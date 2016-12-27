@@ -8,9 +8,9 @@
 	left: 0 ;
 	right: 0 ;
 	/*top: 5rem ;*/
-	top: 0;
+	top: 44px;
 	/*bottom: 3rem;*/
-	bottom: -3rem;
+	bottom: 0;
 }
 
 .info-header {
@@ -62,7 +62,8 @@
 	left: 0 ;
 	right: 0 ;
 	top: 7.65rem;
-	bottom: 0;
+	/*bottom: 0;*/
+	bottom: 3rem;
 	overflow-y: auto ;
 }
 

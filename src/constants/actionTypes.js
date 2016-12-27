@@ -20,3 +20,5 @@ export const SAVE_HISTORY = 'SAVE_HISTORY'
 
 export const GET_TIP = 'GET_TIP'
 export const CLEAR_TIP = 'CLEAR_TIP'
+
+export const GET_EP_COMS = 'GET_EP_COMS'

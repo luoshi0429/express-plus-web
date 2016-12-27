@@ -1,6 +1,6 @@
 // 详情
 import * as types from '../constants/actionTypes'
-import {getTipsAPI, testGetInfoAPI, testGetDetailAPI, computeTime} from '../tool/Tool'
+import { getTipsAPI, testGetInfoAPI, testGetDetailAPI, computeTime, testGetComsAPI } from '../tool/Tool'
 
 // 详情
 export const addDetailLocal = (num, com) => {
@@ -176,5 +176,24 @@ export const fetchTips = (val) => {
               dispatch(getTips(r.auto))
             })
             .catch(err => console.error(err))
+  }
+}
+
+// 寄快递
+export const getEpComs = (coms) => {
+  return {
+    type: types.GET_EP_COMS,
+    coms: coms
+  }
+}
+
+export const fetchEpComs = () => {
+  return dispatch => {
+    return window.fetch(testGetComsAPI)
+            .then(r => r.json())
+            .then(r => {
+              dispatch(getEpComs(r))
+            })
+            .catch(err => console.log(err))
   }
 }

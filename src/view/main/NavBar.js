@@ -1,5 +1,6 @@
 // NavBar.js
 import React, {Component, PropTypes} from 'react'
+import { browserHistory } from 'react-router'
 
 class NavBar extends Component {
   static propTypes = {
@@ -14,7 +15,7 @@ class NavBar extends Component {
     style: PropTypes.object
   };
   static defaultProps = {
-    leftBarClicked: () => {},
+    leftBarClicked: () => { browserHistory.goBack() },
     rightBarClicked: () => {}
   };
   render () {

@@ -3,6 +3,7 @@ import info from './info'
 import details from './detail'
 import searchHistory from './search'
 import { GET_TIP, CLEAR_TIP } from '../constants/actionTypes'
+import coms from './order'
 
 const tip = (state = [], action) => {
   switch (action.type) {
@@ -19,5 +20,6 @@ export default combineReducers({
   info,
   details,
   searchHistory,
-  tip
+  tip,
+  coms
 })

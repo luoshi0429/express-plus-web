@@ -6,6 +6,7 @@ import InfoFooter from './InfoFooter'
 import '../../styles/info.css'
 import { connect } from 'react-redux'
 import { fetchInfo } from '../../actions/action'
+import NavBar from '../main/NavBar'
 
 function LoadView () {
   return (
@@ -27,6 +28,7 @@ class Info extends Component {
     }
     return (
       <div>
+        <NavBar leftBarClass='fa fa-chevron-left' title={headerInfo.num} />
         <div className='infoView'>
           <InfoHeader headerInfo={headerInfo} refreshData={this.fetchData.bind(this)} />
           <InfoList info={epInfo} />

@@ -6,9 +6,9 @@ import NavBar from './NavBar'
 
 class App extends Component {
   render () {
-    const {hideRightBar, hideTab, hideNav, ...navbar} = this.props.routes[1]
+    const {hideRightBar, hideTab, hideNav, ...navbar} = this.props.routes[2]
     const rightBarClass = hideRightBar ? '' : 'fa fa-search'
-    let title = this.props.location.query.num || this.props.routes[1].title
+    let title = this.props.location.query.num || this.props.routes[2].title
     return (
       <div>
         {hideNav ? <div /> : <NavBar {...navbar} title={title} rightBarClass={rightBarClass} leftBarClicked={this.back.bind(this)} rightBarClicked={this.onSearch.bind(this)} />}
@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   onSearch () {
-    console.log(this.props)
     const {rightBarTitle} = this.props.routes[1]
     if (rightBarTitle === '取消') {
       browserHistory.goBack()

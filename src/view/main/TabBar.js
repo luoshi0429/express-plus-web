@@ -12,7 +12,7 @@ class TabBar extends Component {
           </Link>
         </div>
         <div className='tabbar-item'>
-          <Link to='/history' className='link' activeClassName='activeStyle'>
+          <Link to='/order' className='link' activeClassName='activeStyle'>
             <i className='fa  fa-history' />
           </Link>
         </div>
