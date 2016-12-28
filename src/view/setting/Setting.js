@@ -29,7 +29,6 @@ class Setting extends Component {
             <a href='#' className='setting-item'>给应用评分</a>
           </div>
         </div>
-
         <div className='copyright'>©2015 快递助手 - 由快递100强力驱动</div>
       </div>
     )

@@ -41,6 +41,22 @@ class InfoFooter extends Component {
     const {dispatch, tags, num} = this.props
     dispatch(saveFilter(num, tags))
   }
+
+  componentDidMount () {
+    this.refreshInfoView()
+  }
+
+  componentDidUpdate () {
+    this.refreshInfoView()
+  }
+
+  refreshInfoView () {
+    const infoView = document.querySelector('.infoView')
+    const height = this.refs.infoFooter.clientHeight + 'px'
+    if (infoView && infoView.style.bottom !== height) {
+      infoView.style.bottom = height
+    }
+  }
 }
 
 InfoFooter.propTypes = {

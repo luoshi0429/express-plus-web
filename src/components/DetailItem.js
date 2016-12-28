@@ -6,6 +6,7 @@ import Tag from './Tag'
 import Button from './Button'
 import { getFilter } from '../actions/action'
 import { connect } from 'react-redux'
+
 class DetailItem extends Component {
   colors = []
 

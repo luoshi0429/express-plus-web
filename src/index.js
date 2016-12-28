@@ -14,6 +14,7 @@ const initialState = Object.assign({}, {
   },
   searchHistory: getHistory()
 })
+
 ReactDOM.render(
   <Provider store={store(initialState)}>
     <Router routes={routers} history={browserHistory} />

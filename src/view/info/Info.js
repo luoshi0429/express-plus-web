@@ -26,6 +26,7 @@ class Info extends Component {
         </div>
       )
     }
+
     return (
       <div>
         <NavBar leftBarClass='fa fa-chevron-left' title={headerInfo.num} />
