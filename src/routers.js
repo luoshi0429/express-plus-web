@@ -19,5 +19,7 @@ module.exports = (
     </Route>
     <Route path='info' component={Info} hideRightBar='true' leftBarClass='fa fa-chevron-left' />
     <Route path='orderDetail' component={OrderDetail} />
-</Route>
+  </Route>
 )
+
+// <Route path='info' component={Info} hideRightBar='true' leftBarClass='fa fa-chevron-left' />

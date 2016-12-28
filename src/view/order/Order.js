@@ -4,7 +4,6 @@ import '../../styles/order.css'
 import { fetchEpComs } from '../../actions/action'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-import OrderDetail from './OrderDetail'
 class Order extends Component {
   render () {
     return (
@@ -23,8 +22,7 @@ class Order extends Component {
   pushTo (com) {
     console.log(com)
     browserHistory.push({
-      pathname: 'orderDetail',
-      component: OrderDetail
+      pathname: 'orderDetail'
     })
   }
 }

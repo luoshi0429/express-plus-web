@@ -12,7 +12,7 @@ class OrderDetail extends Component {
             <Input placeholder='请填写物品类型' className='order-input' />
           </div>
         <div className='bottom-container'>
-          <label><input type='checkbox' />我已阅读并同意<a href='#'>《服务协议》</a></label>
+          <label><input type='checkbox' defaultChecked='true' />我已阅读并同意<a href='#'>《服务协议》</a></label>
           <button>我要寄件</button>
         </div>
       </div>

@@ -14,7 +14,6 @@ export const CHANGE_FILTER = 'CHANGE_FILTER'
 export const GET_FILTER = 'GET_FILTER'
 export const SAVE_FILTER = 'SAVE_FILTER'
 
-export const GET_HISTORY = 'GET_HISTORY'
 export const CLEAR_HISTORY = 'REMOVE_HISTORY'
 export const SAVE_HISTORY = 'SAVE_HISTORY'
 
@@ -22,3 +21,7 @@ export const GET_TIP = 'GET_TIP'
 export const CLEAR_TIP = 'CLEAR_TIP'
 
 export const GET_EP_COMS = 'GET_EP_COMS'
+
+export const CHANGE_AUTO = 'CHANGE_AUTO'
+export const CHANGE_CHECKED = 'CHANGE_CHECKED'
+export const CHANGE_INTERVAL = 'CHANGE_INTERVAL'

@@ -32,7 +32,7 @@ export function saveDetailLocal (val) {
 }
 
 export function getCheckedEp () {
-  return window.localStorage.getItem(CHECKED_KEY)
+  return window.localStorage.getItem(CHECKED_KEY) || '1'
 }
 
 export function saveCheckedEp (val) {
@@ -40,7 +40,7 @@ export function saveCheckedEp (val) {
 }
 
 export function getSearchInterval () {
-  return window.localStorage.getItem(INTERVAL_KEY)
+  return window.localStorage.getItem(INTERVAL_KEY) || 30
 }
 
 export function saveSearchInterval (val) {
@@ -48,7 +48,7 @@ export function saveSearchInterval (val) {
 }
 
 export function getCheckedAuto () {
-  return window.localStorage.getItem(AUTO_KEY)
+  return window.localStorage.getItem(AUTO_KEY) || '1'
 }
 
 export function saveCheckedAuto (val) {

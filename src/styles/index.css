@@ -110,7 +110,7 @@ input:focus {
   display: flex;
   font-size: 1.2rem;
   color: #fff;
-  z-index: 99;
+  z-index: 9;
   position: relative;
 }
 

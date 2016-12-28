@@ -132,12 +132,6 @@ export const starDetail = (currentNum) => {
 }
 
 // 搜索
-export const getHistories = () => {
-  return {
-    type: types.GET_HISTORY
-  }
-}
-
 export const saveHistory = (num) => {
   return {
     type: types.SAVE_HISTORY,
@@ -195,5 +189,27 @@ export const fetchEpComs = () => {
               dispatch(getEpComs(r))
             })
             .catch(err => console.log(err))
+  }
+}
+
+// 设置
+export const changeAuto = (auto) => {
+  return {
+    type: types.CHANGE_AUTO,
+    auto
+  }
+}
+
+export const changeInterval = (interval) => {
+  return {
+    type: types.CHANGE_INTERVAL,
+    interval
+  }
+}
+
+export const changeChecked = (checked) => {
+  return {
+    type: types.CHANGE_CHECKED,
+    checked
   }
 }

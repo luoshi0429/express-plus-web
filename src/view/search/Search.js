@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router'
 import { coms } from '../../tool/Tool'
 import Button from '../../components/Button'
 import { connect } from 'react-redux'
-import { fetchTips, getHistories, clearHistory, clearTips, saveHistory } from '../../actions/action'
+import { fetchTips, clearHistory, clearTips, saveHistory } from '../../actions/action'
 class Search extends Component {
   render () {
     const { histories, tips } = this.props
@@ -68,10 +68,6 @@ class Search extends Component {
 
   clearHistory () {
     this.props.dispatch(clearHistory())
-  }
-
-  componentDidMount () {
-    this.props.dispatch(getHistories())
   }
 }
 
